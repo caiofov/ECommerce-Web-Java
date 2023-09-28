@@ -1,0 +1,75 @@
+- Menu na parte superior de todas as páginas
+	- Login / Signup
+	- Categorias (dropdown com as categorias)
+	- Fale conosco
+	- Carrinho de compras
+	- Perfil
+
+- Rodapé em todas as páginas:
+	- Contato
+	- Dizer que foi um trabalho da disciplina de prog web (fictício)
+
+
+TELA DE INICIO
+	- Seção com categorias
+	- Seção com produtos em destaque
+
+
+TELA DA CATEGORIA
+- Nome da categoria como título
+- buscar produto
+- Produtos em destaque
+
+
+TELA DE BUSCA DO PRODUTO
+- Lista de resultados
+	- Nome
+	- Foto
+	- Preço
+	- Qtde de vendas
+
+
+TELA DO PRODUTO
+- Nome
+- Foto
+- Descrição
+- Preço
+- Quantidade
+- Categoria
+- Vendedor
+- Quantidade de vendas
+- Botão editar (abre a tela de cadastro) - so aparece para o vendedor do produto
+
+
+TELA DE CADASTRO DO PRODUTO
+- Nome
+- Foto
+- Descrição
+- Preço
+- Quantidade
+- Categoria
+- Botão salvar
+- Botão descartar
+
+
+TELA DE PERFIL
+	obs: se não for o usuário do perfil, não poderá editar
+- Nome e alterar nome
+- nome de usuário
+- email e alterar email
+- alterar senha
+- foto e alterar foto
+- endereço e alterar endereço
+- Produtos que estão sendo vendidos
+
+
+TELA DO CARRINHO
+- Lista de produtos
+	- Foto
+	- Nome
+	- Qtde comprada
+	- preço
+	- preço unitário
+- Total do pedido
+- Endereço de entrega (alterar endereço)
+- Botão de confirmar pedido
