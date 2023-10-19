@@ -20,13 +20,27 @@ public class InserirClienteServlet extends HttpServlet {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         String dataNascimento = request.getParameter("dataNascimento");
+        String endereco = request.getParameter("endereco");
+        String complemento = request.getParameter("complemento");
+        int numero = request.getParameter("numero");
+        String bairro = request.getParameter("bairro");
+        String cidade = request.getParameter("cidade");
+        String uf = request.getParameter("uf");
+        String cep = request.getParameter("cep");
+        String ddd = request.getParameter("endereco");
+        String telefone = request.getParameter("endereco");
 
         ClienteDAO clienteDAO = new ClienteDAO();
         boolean sucesso = clienteDAO.inserirCliente(nome, login, senha, dataNascimento);
+        // ---------------------------------------------------------------
+        // BUSCAR NO BANCO cliente O ID DO CLIENTE........
+        // ---------------------------------------------------------------
+        boolean sucesso2 = clienteDAO.inserirEnderecoCliente(endereco, complemento, numero, bairro, cidade, uf, cep, 1, cliente);
+        boolean sucesso3 = clienteDAO.inserirTelefoneCliente(ddd, telefone, 1, cliente);
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if (sucesso) {
+            if (sucesso && sucesso2 && sucesso3) {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");

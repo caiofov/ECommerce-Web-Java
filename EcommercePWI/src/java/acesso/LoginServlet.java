@@ -21,8 +21,8 @@ public class LoginServlet extends HttpServlet {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
 
-        ClienteDAO usuarioDAO = new ClienteDAO();
-        boolean sucesso = usuarioDAO.validarAcesso(login, senha);
+        ClienteDAO clienteDAO = new ClienteDAO();
+        boolean sucesso = clienteDAO.validarAcesso(login, senha);
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
