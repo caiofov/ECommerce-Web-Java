@@ -1,15 +1,15 @@
-package cliente.modelo;
+package funcionario.modelo;
 
 import static config.Config.*;
 import java.sql.*;
 
 /**
- * Classe que implementa o padrão DAO para a entidade cliente
+ * Classe que implementa o padrão DAO para a entidade funcionario
  */
-public class ClienteDAO {           // FALTA INSERIR NA TABELA enderecocliente E telefonecliente DEPOIS DA CRIAÇÃO DO CLIENTE
+public class FuncionarioDAO {
 
     /**
-     * Método utilizado para verificar se o login e senha do usuário são válidos
+     * Método utilizado para verificar se o login e senha do funcionario são válidos
      *
      * @param login
      * @param senha
@@ -20,7 +20,7 @@ public class ClienteDAO {           // FALTA INSERIR NA TABELA enderecocliente E
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM cliente WHERE login = ? AND senha = ?");
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM funcionario WHERE login = ? AND senha = ?");
             ps.setString(1, login);
             ps.setString(2, senha);
             ResultSet rs = ps.executeQuery();
@@ -37,25 +37,27 @@ public class ClienteDAO {           // FALTA INSERIR NA TABELA enderecocliente E
     }
 
     /**
-     * Método utilizado para inserir um novo usuário cliente
+     * Método utilizado para inserir um novo funcionario
      *
      * @param nome
      * @param login
      * @param senha
      * @param dataNascimento
+     * @param cargo
      * 
      * @return
      */
-    public boolean inserirCliente(String nome, String login, String senha, String dataNascimento) {
+    public boolean inserirFuncionario(String nome, String login, String senha, String dataNascimento, String cargo) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("INSERT INTO cliente (nome, login, senha, dataNascimento) VALUES (?, ?, ?, ?)");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO cliente (nome, login, senha, dataNascimento, cargo) VALUES (?, ?, ?, ?, ?)");
             ps.setString(1, nome);
             ps.setString(2, login);
             ps.setString(3, senha);
             ps.setString(4, dataNascimento);
+            ps.setString(5, cargo);
             sucesso = (ps.executeUpdate() == 1);
             ps.close();
             c.close();
