@@ -1,17 +1,18 @@
 package produto.modelo;
 
 /**
+ *
+ * @author Leonardo Oliveira Moreira
+ * 
  * Classe que representa a entidade produto
  */
 public class Produto {
     
     private int id;
-    private String nome;
     private String descricao;
-    private float valor;
-    private int qtdeEstoque;
-    private int categoria;
-    private int funcionario;
+    private double preco;
+    private String foto;
+    private int quantidade;
 
     public int getId() {
         return id;
@@ -19,14 +20,6 @@ public class Produto {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getDescricao() {
@@ -37,35 +30,28 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public float getValor() {
-        return valor;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setValor(float valor) {
-        this.valor = valor;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public int getQtdeEstoque() {
-        return qtdeEstoque;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setQtdeEstoque(int qtdeEstoque) {
-        this.qtdeEstoque = qtdeEstoque;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
-    public int getCategoria() {
-        return categoria;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setCategoria(int categoria) {
-        this.categoria = categoria;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
-
-    public int getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(int funcionario) {
-        this.funcionario = funcionario;
-    }
+    
 }
