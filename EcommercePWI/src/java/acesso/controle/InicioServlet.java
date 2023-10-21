@@ -14,9 +14,6 @@ import produto.modelo.Produto;
 import produto.modelo.ProdutoDAO;
 
 /**
- *
- * @author Leonardo Oliveira Moreira
- *
  * Classe que representa a ação de montar a página inicial da aplicação
  */
 public class InicioServlet extends HttpServlet {

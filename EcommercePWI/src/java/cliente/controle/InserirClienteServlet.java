@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import usuario.modelo.UsuarioDAO;
 
 /**
- *
- * @author Leonardo Oliveira Moreira
- *
  * Classe que representa a ação de inserir um novo cliente
  */
 public class InserirClienteServlet extends HttpServlet {

@@ -1,13 +1,10 @@
 package usuario.modelo;
 
 /**
- *
- * @author Leonardo Oliveira Moreira
- * 
  * Classe que representa a entidade usuário
  */
 public class Usuario {
-    
+
     private int id;
     private String nome;
     private String endereco;
@@ -71,5 +68,5 @@ public class Usuario {
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
     }
-    
+
 }

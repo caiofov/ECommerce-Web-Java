@@ -4,19 +4,15 @@ import static config.Config.*;
 import java.sql.*;
 
 /**
- *
- * @author Leonardo Oliveira Moreira
- *
  * Classe que implementa o padrão DAO para a entidade usuário
  */
 public class UsuarioDAO {
 
-    
     /**
      * Método utilizado para recuperar um usuário pelo login
-     * 
+     *
      * @param login
-     * @return 
+     * @return
      */
     public Usuario getUsuario(String login) {
         Usuario usuario = null;
@@ -44,7 +40,7 @@ public class UsuarioDAO {
         }
         return usuario;
     }
-    
+
     /**
      * Método utilizado para verificar se o login e senha do usuário são válidos
      *

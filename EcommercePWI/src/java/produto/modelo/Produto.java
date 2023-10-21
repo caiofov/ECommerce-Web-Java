@@ -1,13 +1,10 @@
 package produto.modelo;
 
-/**
- *
- * @author Leonardo Oliveira Moreira
- * 
+/*
  * Classe que representa a entidade produto
  */
 public class Produto {
-    
+
     private int id;
     private String descricao;
     private double preco;
@@ -53,5 +50,5 @@ public class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    
+
 }

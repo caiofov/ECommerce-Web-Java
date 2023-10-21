@@ -10,9 +10,6 @@ import javax.servlet.http.HttpSession;
 import usuario.modelo.UsuarioDAO;
 
 /**
- *
- * @author Leonardo Oliveira Moreira
- *
  * Classe que representa a ação de efetuar a identficação do usuário na
  * aplicação
  */
