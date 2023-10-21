@@ -20,7 +20,7 @@
             <br/>
             <input type="password" name="senha" placeholder="Entre com sua senha" />
             <br/>
-            <input type="text" name="dataNascimento" placeholder="Entre com sua data de nascimento" />
+            <input type="date" name="dataNascimento" placeholder="Entre com sua data de nascimento" />
             <br/>
             <input type="submit" value="Cadastrar" />
         </form>
