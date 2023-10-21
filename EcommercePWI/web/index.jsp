@@ -1,25 +1,39 @@
 <%-- 
     Document   : index
-    Created on : 6 de out. de 2023, 15:55:48
-    Author     : aluno
+    Created on : 1 de set de 2023, 14:52:02
+    Author     : Leonardo Oliveira Moreira
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>smd e-commerce</title>
-    </head>
-    <body>
-        <h1>Identificação do Usuário</h1>
-        <form action="Login" method="post">
-            <input type="text" name="login" placeholder="Entre com seu login" />
-            <br/>
-            <input type="password" name="senha" placeholder="Entre com sua senha" />
-            <br/>
-            <input type="submit" value="Entrar" />
-        </form>
-        <a href="novoCliente.jsp">Cadastre-se</a>
-    </body>
-</html>
+<%@page import="produto.modelo.Produto"%>
+<%@page import="java.util.List"%>
+<%@include file="cabecalho.jsp" %>
+<%
+    List<Produto> produtos = (List<Produto>) request.getAttribute("produtosEmEstoque");
+    if (produtos != null && !produtos.isEmpty()) {
+%>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <%
+        for (int i = 0; i < produtos.size(); i++) {
+            Produto p = produtos.get(i);
+    %>
+        <div class="col">
+            <div class="card h-100">
+                <img src="" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= p.getDescricao() %></h5>
+                    <p class="card-text"><%= p.getDescricao() %></p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"><a href="#" class="btn btn-primary">Comprar</a></small>
+                </div>
+            </div>
+        </div>
+    <%
+        }
+    %>
+    </div>
+<%
+    }
+%>
+<%@include file="rodape.jsp" %>
+
