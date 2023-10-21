@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 1 de set de 2023, 14:52:02
-    Author     : Leonardo Oliveira Moreira
---%>
-
 <%@page import="produto.modelo.Produto"%>
 <%@page import="java.util.List"%>
 <%@include file="cabecalho.jsp" %>

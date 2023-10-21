@@ -1,9 +1,3 @@
-<%-- 
-    Document   : rodape
-    Created on : 6 de out de 2023, 16:37:00
-    Author     : Leonardo Oliveira Moreira
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <footer>
             <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
