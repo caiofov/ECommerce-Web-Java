@@ -67,5 +67,6 @@ public class PedidoDAO {
             }
             return sucesso;
         }
+        return true;
     }
 }
