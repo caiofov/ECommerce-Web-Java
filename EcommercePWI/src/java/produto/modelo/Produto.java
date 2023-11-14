@@ -10,6 +10,7 @@ public class Produto {
     private double preco;
     private String foto;
     private int quantidade;
+    private int categoriaId;
 
     public int getId() {
         return id;
@@ -49,6 +50,14 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public int getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(int categoriaId) {
+        this.categoriaId = categoriaId;
     }
 
 }
