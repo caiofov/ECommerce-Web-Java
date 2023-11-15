@@ -175,8 +175,8 @@ ALTER TABLE ONLY public.usuario ALTER COLUMN id SET DEFAULT nextval('public.usua
 -- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.categoria (id, nome) VALUES (1, 'Categoria A');
-INSERT INTO public.categoria (id, nome) VALUES (3, 'Categoria C');
+INSERT INTO public.categoria (id, nome) VALUES (1, 'Eletrônicos');
+INSERT INTO public.categoria (id, nome) VALUES (3, 'Outros');
 
 
 --
@@ -185,8 +185,9 @@ INSERT INTO public.categoria (id, nome) VALUES (3, 'Categoria C');
 -- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id) VALUES (1, 'PLAYSTATION 3', 990.9, NULL, 5, 1);
-INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id) VALUES (2, 'PLAYSTATION 4', 2990.9, NULL, 3, 1);
+INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id) VALUES (1, 'PLAYSTATION 3', 990.9, 'https://4.imimg.com/data4/ED/OP/MY-23263516/sony-ps3.png', 5, 1);
+INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id) VALUES (2, 'PLAYSTATION 4', 2990.9, 'https://www.playinformatica.net.br/loja/img/prod/playstation-4-slim-1tb-sony_62.jpg', 3, 1);
+INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id) VALUES (3, 'XÍCARA JAVA', 50, 'https://cdn.awsli.com.br/1225/1225697/produto/47027787/caneca-java-logo-3ff0c50b.jpg', 10, 3);
 
 
 --
