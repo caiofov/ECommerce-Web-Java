@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cabecalho
-    Created on : 6 de out de 2023, 16:35:15
-    Author     : Leonardo Oliveira Moreira
---%>
-
 <%@page import="usuario.modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
