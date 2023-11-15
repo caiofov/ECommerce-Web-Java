@@ -10,6 +10,10 @@
         <link href="css/principal.css" rel="stylesheet" />
     </head>
     <body>
+        <%
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        boolean logado = usuario != null && usuario instanceof Usuario;
+        %>
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light border-bottom">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Inicio">
@@ -24,19 +28,41 @@
                         <li class="nav-item">
                             <a class="nav-link" href="novoCliente.jsp">Novo Cliente</a>
                         </li>
+                        <%
+                    if (logado && usuario.isAdministrador()) {
+                    %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ListarCategoria">Categorias</a>
+                        </li>
+                      <% 
+                    }
+                      %>
                     </ul>
                     
                     <%
-                    Usuario usuario = (Usuario) session.getAttribute("usuario");
-                    if (usuario != null && usuario instanceof Usuario) {
+                    if (logado) {
                     %>
-                    <form class="d-flex" action="Logout" method="get">
-                        <input class="form-control me-2" type="text" readonly disabled value="Olá, <%= usuario.getNome() %>!">
-                        <button class="btn btn-outline-danger" type="submit">Sair</button>
-                    </form>
+
+                    <%-- TODO: carrinho de compras --%>
+                    <a title="Meu carrinho" class="text-decoration-none" href="#">
+                        <%@include file="imagens/svg/cart.svg" %>
+                    </a>
+                    
+                    <div class="d-flex flex-row align-items-center">
+                    <a title="Meu Perfil" class="text-decoration-none align-items-center" href="perfil.jsp?id=<%= usuario.getId()%>">
+                        <%@include file="imagens/svg/user.svg" %>
+                        <%= usuario.getNome() %>
+                    </a>
+
+                        <form class="d-flex" action="Logout" method="get">
+                            <button class="btn btn-outline-danger" type="submit">Sair</button>
+                        </form>
+                    </div>
+                        
                     <% 
-                    } else {
+                    } else { 
                     %>
+                    <%-- Se não tiver logado, é exibido um formulário de login --%>
                     <form class="d-flex" action="Login" method="post">
                         <input class="form-control me-2" type="text" name="login" placeholder="Login" aria-label="Login" required>
                         <input class="form-control me-2" type="password" name="senha" placeholder="Senha" aria-label="Senha" required>

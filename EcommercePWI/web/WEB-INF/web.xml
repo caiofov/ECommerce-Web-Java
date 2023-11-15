@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <servlet>
         <servlet-name>InicioServlet</servlet-name>
         <servlet-class>acesso.controle.InicioServlet</servlet-class>
@@ -44,13 +46,17 @@
         <servlet-name>NovoProdutoServlet</servlet-name>
         <servlet-class>produto.controle.NovoProdutoServlet</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>AlterarContaServlet</servlet-name>
         <servlet-class>conta.controle.AlterarContaServlet</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>ExcluirContaServlet</servlet-name>
         <servlet-class>conta.controle.ExcluirContaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetProdutoServlet</servlet-name>
+        <servlet-class>produto.controle.GetProdutoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
@@ -83,7 +89,7 @@
     <servlet-mapping>
         <servlet-name>InserirCategoriaServlet</servlet-name>
         <url-pattern>/InserirCategoria</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InserirProdutoServlet</servlet-name>
         <url-pattern>/InserirProduto</url-pattern>
@@ -96,11 +102,14 @@
         <servlet-name>ExcluirContaServlet</servlet-name>
         <url-pattern>/ExcluirConta</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AlterarContaServlet</servlet-name>
         <url-pattern>/AlterarConta</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>GetProdutoServlet</servlet-name>
+        <url-pattern>/GetProduto</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

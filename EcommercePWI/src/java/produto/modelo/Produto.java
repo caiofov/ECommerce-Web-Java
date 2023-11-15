@@ -7,6 +7,7 @@ public class Produto {
 
     private int id;
     private String descricao;
+    private String nome;
     private double preco;
     private String foto;
     private int quantidade;
@@ -28,8 +29,20 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public double getPreco() {
         return preco;
+    }
+
+    public String getPrecoString() {
+        return String.format("%.2f", preco);
     }
 
     public void setPreco(double preco) {

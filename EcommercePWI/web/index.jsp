@@ -12,13 +12,13 @@
     %>
         <div class="col">
             <div class="card h-100">
-                <img src="" class="card-img-top" alt="...">
+                <img src="<%= p.getFoto() %>" class="card-img-top img-thumbnail rounded" alt="<%= p.getNome() %>">
                 <div class="card-body">
-                    <h5 class="card-title"><%= p.getDescricao() %></h5>
-                    <p class="card-text"><%= p.getDescricao() %></p>
+                    <h5 class="card-title"><%= p.getNome() %></h5>
+                    <p class="card-text"><b>R$ <%= p.getPrecoString() %></b> - <%= p.getDescricao() %></p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted"><a href="#" class="btn btn-primary">Comprar</a></small>
+                    <small class="text-muted"><a href="GetProduto?id=<%= p.getId() %>" class="btn btn-primary">Comprar</a></small>
                 </div>
             </div>
         </div>
