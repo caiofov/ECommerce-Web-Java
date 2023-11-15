@@ -48,7 +48,7 @@ public class ProdutoDAO {
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("SELECT id, descricao, preco, foto, quantidade FROM produto WHERE quantidade > 0");
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM produto WHERE quantidade > 0");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Produto p = new Produto();
@@ -68,4 +68,30 @@ public class ProdutoDAO {
         return produtos;
     }
 
+    public Produto getProduto(Integer id) {
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM produto WHERE id=?");
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Produto p = new Produto();
+                p.setId(rs.getInt("id"));
+                p.setDescricao(rs.getString("descricao"));
+                p.setFoto(rs.getString("foto"));
+                p.setPreco(rs.getDouble("preco"));
+                p.setQuantidade(rs.getInt("quantidade"));
+                return p;
+            }
+            rs.close();
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return null;
+        }
+
+        return null;
+    }
 }
