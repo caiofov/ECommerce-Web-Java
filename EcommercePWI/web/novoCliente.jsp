@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@include file="cabecalho.jsp" %>
         <h1>Cadastrar um Novo Cliente</h1>
         <form action="InserirCliente" method="post">
@@ -7,7 +9,7 @@
                 <div id="nomeHelp" class="form-text">Campo obrigatório.</div>
             </div>
             <div class="mb-3">
-                <label for="inputEndereco" class="form-label">Endere�o</label>
+                <label for="inputEndereco" class="form-label">Endereço</label>
                 <input type="text" name="endereco" class="form-control" id="inputEndereco" aria-describedby="enderecoHelp">
                 <div id="enderecoHelp" class="form-text">Campo obrigatório.</div>
             </div>
