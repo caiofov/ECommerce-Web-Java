@@ -7,60 +7,71 @@
     <%
      if (usuario == null || !(usuario instanceof Usuario) || !usuario.isAdministrador()){
     %>
-    <p>Não autorizado</p>
+        <p>Não autorizado</p>
+
     <%
-     }else{
+     } else{
     %>
-    <div class="d-flex align-items-center justify-content-between">
-        <h1>Categorias</h1>
-        <a title="Adicionar" class="text-decoration-none" href="NovaCategoria">
-            <%@include file="../../../imagens/svg/add.svg" %>
-        </a>
-    </div>
+        <div class="d-flex align-items-center justify-content-between">
+            <h1>Categorias</h1>
+            <a title="Adicionar" class="text-decoration-none" href="NovaCategoria">
+                <%@include file="../../../imagens/svg/add.svg" %>
+            </a>
+        </div>
 
         <%
             if (request.getAttribute("mensagem") != null) {
         %>
-        <div><%= request.getAttribute("mensagem") %></div>
+            <div><%= request.getAttribute("mensagem") %></div>
         <%
             }
         %>
+
+        <%-- verificar se existem categorias --%>
         <% 
             List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
             if (categorias == null || categorias.isEmpty()) {
         %>
-        <div>NÃ£o hÃ¡ categorias a serem listadas.</div>
+            <div>Não há categorias a serem listadas.</div>
+
         <%
             } else {
         %>
-        <table class='table'>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">&nbsp;</th>
-            </tr>
-            <% 
-                for (Categoria c : categorias) {
-            %>
-            <tr>
-                <th scope="row"><%= c.getId() %></th>
-                <td><%= c.getNome() %></td>
-                <td>
-                    <a title="Mostrar" class="text-decoration-none" href="MostrarCategoria?id=<%= c.getId() %>">
-                        <%@include file="../../../imagens/svg/eye.svg" %>
-                    </a>
+            <table class='table'>
+                <%-- Cabeçalho da tabela --%>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+                
+                <%-- Cada linha da tabela é uma categoria --%>
+                <% 
+                    for (Categoria c : categorias) {
+                %>
+                    <tr>
+                        <th scope="row"><%= c.getId() %></th>
+                        <td><%= c.getNome() %></td>
+                        <td>
+                            <a title="Mostrar" class="text-decoration-none" href="MostrarCategoria?id=<%= c.getId() %>">
+                                <%@include file="../../../imagens/svg/eye.svg" %>
+                            </a>
 
-                    <a title="Excluir" class="text-decoration-none" href="ExcluirCategoria?id=<%= c.getId() %>">
-                        <%@include file="../../../imagens/svg/trash.svg" %>
-                    </a>
-                </td>
-            </tr>
+                            <a title="Excluir" class="text-decoration-none" href="ExcluirCategoria?id=<%= c.getId() %>">
+                                <%@include file="../../../imagens/svg/trash.svg" %>
+                            </a>
+                        </td>
+                    </tr>
+                <%
+                    }
+                %>
+
+            </table>
             <%
                 }
             %>
-        </table>
-        <%
-            }}
-        %>
+    <%
+        }
+    %>
 <%@include file="../../../rodape.jsp" %>
 
