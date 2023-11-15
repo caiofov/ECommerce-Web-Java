@@ -43,7 +43,7 @@ public class InserirProdutoServlet extends HttpServlet {
         } else {
             request.setAttribute("mensagem", "Não foi possível inserir o produto");
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ListarProduto");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Inicio");
         dispatcher.forward(request, response);
     }
 }

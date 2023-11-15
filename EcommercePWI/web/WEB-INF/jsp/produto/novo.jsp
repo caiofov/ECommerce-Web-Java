@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Novo produto</h1>
-        <form action="InserirCategoria">
+        <form action="InserirProduto">
             Descricao: <input type="text" name="descricao" />
             <br/>
             Preco: <input type="text" name="preco" />
