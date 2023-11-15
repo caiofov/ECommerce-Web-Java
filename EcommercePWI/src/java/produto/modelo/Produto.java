@@ -32,6 +32,10 @@ public class Produto {
         return preco;
     }
 
+    public String getPrecoString() {
+        return String.format("%.2f", preco);
+    }
+
     public void setPreco(double preco) {
         this.preco = preco;
     }

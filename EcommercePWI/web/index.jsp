@@ -15,7 +15,7 @@
                 <img src="" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><%= p.getDescricao() %></h5>
-                    <p class="card-text"><%= p.getDescricao() %></p>
+                    <p class="card-text">R$ <%= p.getPrecoString() %></p>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted"><a href="#" class="btn btn-primary">Comprar</a></small>
