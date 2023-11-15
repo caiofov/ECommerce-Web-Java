@@ -1,6 +1,6 @@
 package produto.modelo;
 
-/*
+/**
  * Classe que representa a entidade produto
  */
 public class Produto {

@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Leonardo Oliveira Moreira
- *
  * Classe que implementa o padrão DAO para a entidade produto
  */
 public class ProdutoDAO {
@@ -40,7 +37,7 @@ public class ProdutoDAO {
         }
         return sucesso;
     }
-    
+
     /**
      * Método utilizado para listar todos os produtos em estoque
      *
