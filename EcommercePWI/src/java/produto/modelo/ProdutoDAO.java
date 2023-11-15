@@ -66,5 +66,25 @@ public class ProdutoDAO {
         }
         return produtos;
     }
+        /**
+        * Método utilizado para excluir um produto
+        *
+        * @return
+        */
+        public boolean excluir(int id) {
+        boolean sucesso = false;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement("DELETE FROM produto WHERE id = ?");
+            ps.setInt(1, id);
+            sucesso = (ps.executeUpdate() == 1);
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return false;
+        }
+        return sucesso;
+    }
 
 }

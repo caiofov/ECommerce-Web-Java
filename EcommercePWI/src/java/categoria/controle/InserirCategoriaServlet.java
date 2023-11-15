@@ -37,5 +37,4 @@ public class InserirCategoriaServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("ListarCategoria");
         dispatcher.forward(request, response);
     }
-
 }
