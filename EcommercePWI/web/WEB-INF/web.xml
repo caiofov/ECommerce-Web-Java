@@ -16,6 +16,22 @@
         <servlet-name>InserirClienteServlet</servlet-name>
         <servlet-class>cliente.controle.InserirClienteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarCategoriaServlet</servlet-name>
+        <servlet-class>categoria.controle.ListarCategoriaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirCategoriaServlet</servlet-name>
+        <servlet-class>categoria.controle.ExcluirCategoriaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NovaCategoriaServlet</servlet-name>
+        <servlet-class>categoria.controle.NovaCategoriaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirCategoriaServlet</servlet-name>
+        <servlet-class>categoria.controle.InserirCategoriaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -27,10 +43,26 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/Logout</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InserirClienteServlet</servlet-name>
         <url-pattern>/InserirCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarCategoriaServlet</servlet-name>
+        <url-pattern>/ListarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirCategoriaServlet</servlet-name>
+        <url-pattern>/ExcluirCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NovaCategoriaServlet</servlet-name>
+        <url-pattern>/NovaCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirCategoriaServlet</servlet-name>
+        <url-pattern>/InserirCategoria</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
