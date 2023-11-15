@@ -10,6 +10,10 @@
         <link href="css/principal.css" rel="stylesheet" />
     </head>
     <body>
+        <%
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        boolean logado = usuario != null && usuario instanceof Usuario;
+        %>
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light border-bottom">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Inicio">
@@ -24,11 +28,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="novoCliente.jsp">Novo Cliente</a>
                         </li>
+                        <%
+                    if (logado && usuario.isAdministrador()) {
+                    %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ListarCategoria">Categorias</a>
+                        </li>
+                      <% 
+                    }
+                      %>
                     </ul>
                     
                     <%
-                    Usuario usuario = (Usuario) session.getAttribute("usuario");
-                    if (usuario != null && usuario instanceof Usuario) {
+                    if (logado) {
                     %>
                     <form class="d-flex" action="Logout" method="get">
                         <input class="form-control me-2" type="text" readonly disabled value="Olá, <%= usuario.getNome() %>!">
