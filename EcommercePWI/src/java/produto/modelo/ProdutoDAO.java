@@ -19,16 +19,17 @@ public class ProdutoDAO {
      * @param quantidade
      * @return
      */
-    public boolean inserir(String descricao, double preco, String foto, int quantidade) {
+    public boolean inserir(String descricao, double preco, String foto, int quantidade, String categoria) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("INSERT INTO produto (descricao, preco, foto, quantidade) VALUES (?, ?, ?, ?)");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO produto (descricao, preco, foto, quantidade, categoria) VALUES (?, ?, ?, ?, ?)");
             ps.setString(1, descricao);
             ps.setDouble(2, preco);
             ps.setString(3, foto);
             ps.setInt(4, quantidade);
+            ps.setString(5, categoria);
             sucesso = (ps.executeUpdate() == 1);
             ps.close();
             c.close();
