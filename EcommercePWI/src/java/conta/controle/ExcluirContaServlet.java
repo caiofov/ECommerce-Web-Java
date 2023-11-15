@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import produto.modelo.ProdutoDAO;
+import usuario.modelo.UsuarioDAO;
 
 /**
  *
@@ -18,14 +19,14 @@ public class ExcluirContaServlet {
             protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        ProdutoDAO produtoDAO = new ProdutoDAO();
-        boolean sucesso = produtoDAO.excluir(id);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        boolean sucesso = usuarioDAO.excluir(id);
         if (sucesso) {
-            request.setAttribute("mensagem", "Produto excluída com sucesso");
+            request.setAttribute("mensagem", "Usuario excluído com sucesso");
         } else {
-            request.setAttribute("mensagem", "Não foi possível excluir a produto");
+            request.setAttribute("mensagem", "Não foi possível excluir o usuario");
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ListarProduto");//Path
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Inicio");//Path
         
         dispatcher.forward(request, response);
     }

@@ -16,7 +16,7 @@ import usuario.modelo.UsuarioDAO;
  * @author xyux2
  */
 public class AlterarContaServlet {
-                protected void service(HttpServletRequest request, HttpServletResponse response)
+            protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String nome = (request.getParameter("nome"));
@@ -28,11 +28,11 @@ public class AlterarContaServlet {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         boolean sucesso = usuarioDAO.atualizar(nome,endereco,email,login,senha,id);
         if (sucesso) {
-            request.setAttribute("mensagem", "Usuario excluído com sucesso");
+            request.setAttribute("mensagem", "Dados alterados com sucesso");
         } else {
-            request.setAttribute("mensagem", "Não foi possível excluir o usuario");
+            request.setAttribute("mensagem", "Não foi possível alterar os dados");
         }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Inicio");//Path
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/conta/alterar.jsp");//Path
         
         dispatcher.forward(request, response);
     }
