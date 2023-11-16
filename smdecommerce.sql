@@ -67,6 +67,7 @@ ALTER SEQUENCE public.categoria_id_seq OWNED BY public.categoria.id;
 
 CREATE TABLE public.produto (
     id integer NOT NULL,
+    nome character varying NOT NULL,
     descricao character varying NOT NULL,
     preco numeric NOT NULL,
     foto character varying,

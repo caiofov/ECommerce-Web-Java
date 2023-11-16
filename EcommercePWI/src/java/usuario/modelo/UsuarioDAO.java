@@ -115,12 +115,12 @@ public class UsuarioDAO {
         return sucesso;
     }
         
-    public boolean atualizar(String nome,String endereco, String email, String login, String senha, int id) {
-        boolean sucesso = false;
+    public boolean atualizar(String nome, String endereco, String email, String login, String senha, int id) {
+        boolean sucesso;
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("UPDATE usuario SET nome = ?,endereco = ?, email = ?,login = ?,senha = ? WHERE id = ?");
+            PreparedStatement ps = c.prepareStatement("UPDATE usuario SET nome = ?, endereco = ?, email = ?, login = ?, senha = ? WHERE id = ?;");
             // (nome, endereco, email, login, senha, administrador)
             ps.setString(1, nome);
             ps.setString(2, endereco);

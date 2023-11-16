@@ -1,5 +1,5 @@
 <%@page import="usuario.modelo.Usuario"%>
-<%@include file="../../../cabecalho.jsp" %>
+<%@include file="cabecalho.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- Verifica se foi encontrado um usuario -->
@@ -32,4 +32,4 @@
         }
     %>
 </div>
-<%@include file="../../../rodape.jsp" %>
+<%@include file="rodape.jsp" %>

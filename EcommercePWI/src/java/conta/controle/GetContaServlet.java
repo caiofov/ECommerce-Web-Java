@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class GetContaServlet extends HttpServlet {
 
+    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -23,7 +24,7 @@ public class GetContaServlet extends HttpServlet {
 
         request.setAttribute("perfil", perfil);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/perfil.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("perfil.jsp");
         dispatcher.forward(request, response);
     }
 
