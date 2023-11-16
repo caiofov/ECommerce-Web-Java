@@ -73,6 +73,7 @@ public class CategoriaDAO {
     /**
      * Método utilizado para listar todas as categorias
      *
+     * @param nome
      * @return
      */
     public List<Categoria> listar(String nome) {
@@ -106,20 +107,22 @@ public class CategoriaDAO {
     /**
      * Método utilizado para listar uma categoria existente
      *
+     * @param id
      * @return
      */
-    public Categoria listar(int id) {
-        Categoria p = null;
+    public Categoria get(int id) {
+        Categoria cat = null;
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
             PreparedStatement ps = c.prepareStatement("SELECT id, nome FROM categoria WHERE id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
+
             while (rs.next()) {
-                p = new Categoria();
-                p.setId(rs.getInt("id"));
-                p.setNome(rs.getString("nome"));
+                cat = new Categoria();
+                cat.setId(rs.getInt("id"));
+                cat.setNome(rs.getString("nome"));
             }
             rs.close();
             ps.close();
@@ -127,7 +130,7 @@ public class CategoriaDAO {
         } catch (ClassNotFoundException | SQLException ex) {
             return null;
         }
-        return p;
+        return cat;
     }
 
 }
