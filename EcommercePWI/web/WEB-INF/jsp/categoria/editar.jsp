@@ -1,17 +1,16 @@
-<%-- 
-    Document   : editar
-    Created on : 16 de nov. de 2023, 18:12:36
-    Author     : xyux2
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+
+<%@include file="../../../cabecalho.jsp" %>
+        <h1>Editar a categoria</h1>
+        <form action="AlterarCategoria">
+            <div class="mb-3">
+                <label for="inputNomeCateg" class="form-label">Nome</label>
+                <input type="text" name="nome" class="form-control" id="inputNomeCateg" aria-describedby="nomeCategHelp">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </form>
+        <br/>
+        <a href="Inicio" class="btn btn-primary">Voltar</a>
+
+<%@include file="../../../rodape.jsp" %>
