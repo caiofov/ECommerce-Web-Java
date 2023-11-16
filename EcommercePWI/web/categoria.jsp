@@ -13,7 +13,7 @@
     
     if (categoria == null) {
 %>
-    <p>Categoria nÃ£o encontrada</p>
+    <p>Categoria não encontrada</p>
 <%
     } else{
 %>

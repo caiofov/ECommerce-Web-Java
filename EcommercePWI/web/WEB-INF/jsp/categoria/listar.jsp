@@ -4,14 +4,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file="../../../cabecalho.jsp" %>
-    <%
-     if (usuario == null || !(usuario instanceof Usuario) || !usuario.isAdministrador()){
-    %>
-        <p>Não autorizado</p>
+<%@include file="../auth.jsp" %>
 
-    <%
-     } else{
-    %>
         <div class="d-flex align-items-center justify-content-between">
             <h1>Categorias</h1>
             <a title="Adicionar" class="text-decoration-none" href="NovaCategoria">
