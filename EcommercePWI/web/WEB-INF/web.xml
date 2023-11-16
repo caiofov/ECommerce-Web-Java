@@ -35,6 +35,10 @@
         <servlet-class>categoria.controle.GetCategoriaServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AlterarCategoriaServlet</servlet-name>
+        <servlet-class>categoria.controle.AlterarCategoriaServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>InserirCategoriaServlet</servlet-name>
         <servlet-class>categoria.controle.InserirCategoriaServlet</servlet-class>
     </servlet>
@@ -101,6 +105,10 @@
     <servlet-mapping>
         <servlet-name>GetCategoriaServlet</servlet-name>
         <url-pattern>/GetCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarCategoriaServlet</servlet-name>
+        <url-pattern>/AlterarCategoria</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InserirProdutoServlet</servlet-name>
