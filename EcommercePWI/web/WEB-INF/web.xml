@@ -99,6 +99,10 @@
         <url-pattern>/InserirProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>NovoProdutoServlet</servlet-name>
+        <url-pattern>/NovoProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ExcluirProdutoServlet</servlet-name>
         <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
@@ -107,16 +111,16 @@
         <url-pattern>/AlterarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>GetProdutoServlet</servlet-name>
+        <url-pattern>/GetProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ExcluirContaServlet</servlet-name>
         <url-pattern>/ExcluirConta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarContaServlet</servlet-name>
         <url-pattern>/AlterarConta</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GetProdutoServlet</servlet-name>
-        <url-pattern>/GetProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

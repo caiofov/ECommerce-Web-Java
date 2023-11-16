@@ -1,10 +1,13 @@
 <%@page import="produto.modelo.Produto"%>
+<%@page import="categoria.modelo.Categoria"%>
+
 <%@include file="../../../cabecalho.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- Verifica se foi encontrado um produto -->
 <%
     Produto produto = (Produto) request.getAttribute("produto");
+    Categoria categoria = (Categoria) request.getAttribute("categoria");
     if (produto == null) {
 %>
     <p>Produto não encontrado</p>
@@ -43,8 +46,12 @@
 </div>
 
 <div class="d-flex flex-row flex-align-center">
-    <img width="30%" height="auto" class="figure-img img-thumbnail rounded" alt="<%= produto.getNome()%>" src="<%= produto.getFoto()%>">
+    <img width="30%" height="auto" class="figure-img img-thumbnail rounded" alt="<%= produto.getNome()%>" src="<%= produto.getFoto()%>"/>
+    <div class="d-flex flex-column">
+    <!-- TODO página da categoria para listar produtos -->
+    <small> Categoria: <%= categoria.getNome() %></small>
     <p><%= produto.getDescricao()%></p>
+    </div>
 </div>
 
 
