@@ -32,9 +32,4 @@
         }
     %>
 </div>
-
-<%
-    }
-%>
 <%@include file="../../../rodape.jsp" %>
-

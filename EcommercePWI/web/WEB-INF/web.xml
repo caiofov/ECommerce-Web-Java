@@ -62,6 +62,10 @@
         <servlet-name>GetProdutoServlet</servlet-name>
         <servlet-class>produto.controle.GetProdutoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetContaServlet</servlet-name>
+        <servlet-class>conta.controle.GetContaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
