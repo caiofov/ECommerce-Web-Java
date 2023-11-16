@@ -29,7 +29,7 @@ public class GetProdutoServlet extends HttpServlet {
         request.setAttribute("produto", produto);
         request.setAttribute("categoria", categoria);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("produto/produto.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("produto.jsp");
         dispatcher.forward(request, response);
     }
 
