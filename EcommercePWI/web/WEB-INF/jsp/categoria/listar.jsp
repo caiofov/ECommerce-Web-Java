@@ -54,9 +54,14 @@
                                 <%@include file="../../../imagens/svg/eye.svg" %>
                             </a>
 
+                            <a title="Editar" class="text-decoration-none" href="GetAlterarCategoria?id=<%= c.getId() %>">
+                                <%@include file="../../../imagens/svg/pencil.svg" %>
+                            </a>
+
                             <a title="Excluir" class="text-decoration-none" href="ExcluirCategoria?id=<%= c.getId() %>">
                                 <%@include file="../../../imagens/svg/trash.svg" %>
                             </a>
+                             
                         </td>
                     </tr>
                 <%
