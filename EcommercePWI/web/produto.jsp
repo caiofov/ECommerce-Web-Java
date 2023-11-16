@@ -48,8 +48,7 @@
 <div class="d-flex flex-row flex-align-center">
     <img width="30%" height="auto" class="figure-img img-thumbnail rounded" alt="<%= produto.getNome()%>" src="<%= produto.getFoto()%>"/>
     <div class="d-flex flex-column">
-    <!-- TODO página da categoria para listar produtos -->
-    <small> Categoria: <%= categoria.getNome() %></small>
+    <small> Categoria: <a href="GetCategoria?id=<%= categoria.getId() %>"><%= categoria.getNome() %></a></small>
     <p><%= produto.getDescricao()%></p>
     </div>
 </div>

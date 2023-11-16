@@ -56,7 +56,7 @@
                         <th scope="row"><%= c.getId() %></th>
                         <td><%= c.getNome() %></td>
                         <td>
-                            <a title="Mostrar" class="text-decoration-none" href="MostrarCategoria?id=<%= c.getId() %>">
+                            <a title="Mostrar" class="text-decoration-none" href="GetCategoria?id=<%= c.getId() %>">
                                 <%@include file="../../../imagens/svg/eye.svg" %>
                             </a>
 
