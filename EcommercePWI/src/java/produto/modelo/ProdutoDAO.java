@@ -17,9 +17,10 @@ public class ProdutoDAO {
      * @param preco
      * @param foto
      * @param quantidade
+     * @param categoria
      * @return
      */
-    public boolean inserir(String descricao, double preco, String foto, int quantidade, String categoria) {
+    public boolean inserir(String descricao, double preco, String foto, int quantidade, int categoria) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
@@ -29,7 +30,7 @@ public class ProdutoDAO {
             ps.setDouble(2, preco);
             ps.setString(3, foto);
             ps.setInt(4, quantidade);
-            ps.setString(5, categoria);
+            ps.setInt(5, categoria);
             sucesso = (ps.executeUpdate() == 1);
             ps.close();
             c.close();
@@ -89,6 +90,28 @@ public class ProdutoDAO {
         }
         return sucesso;
     }
+        
+    public boolean atualizar(String descricao,double preco, String foto, int quantidade, int categoria, int id) {
+        boolean sucesso = false;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement("UPDATE produto SET descricao = ?,preco = ?, foto = ?,quantidade = ?,categoria = ? WHERE id = ?");
+            // (nome, endereco, email, login, senha, administrador)
+            ps.setString(1, descricao);
+            ps.setDouble(2, preco);
+            ps.setString(3, foto);
+            ps.setInt(4, quantidade);
+            ps.setInt(5, categoria);
+            ps.setInt(6, id);
+            sucesso = (ps.executeUpdate() == 1);
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return false;
+        }
+        return sucesso;
+    }        
 
     public Produto getProduto(Integer id) {
         try {

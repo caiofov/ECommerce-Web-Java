@@ -47,6 +47,10 @@
         <servlet-class>produto.controle.NovoProdutoServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AlterarProdutoServlet</servlet-name>
+        <servlet-class>produto.controle.AlterarProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AlterarContaServlet</servlet-name>
         <servlet-class>conta.controle.AlterarContaServlet</servlet-class>
     </servlet>

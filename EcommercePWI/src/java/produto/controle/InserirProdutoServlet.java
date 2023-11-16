@@ -35,7 +35,7 @@ public class InserirProdutoServlet extends HttpServlet {
         double preco = Double.parseDouble(request.getParameter("preco"));
         String foto = request.getParameter("foto");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-        String categoria = request.getParameter("categoria");    
+        int categoria = Integer.parseInt(request.getParameter("categoria"));    
         ProdutoDAO produtoDAO = new ProdutoDAO();
         boolean sucesso = produtoDAO.inserir(descricao,preco,foto,quantidade,categoria);
         if (sucesso) {
