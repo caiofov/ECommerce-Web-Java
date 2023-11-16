@@ -32,6 +32,9 @@
                     if (logado && usuario.isAdministrador()) {
                     %>
                         <li class="nav-item">
+                            <a class="nav-link" href="NovoProduto">Novo Produto</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="ListarCategoria">Categorias</a>
                         </li>
                       <% 
