@@ -60,6 +60,7 @@ public class ProdutoDAO {
                 p.setFoto(rs.getString("foto"));
                 p.setPreco(rs.getDouble("preco"));
                 p.setQuantidade(rs.getInt("quantidade"));
+                p.setCategoriaId(rs.getInt("categoria_id"));
                 produtos.add(p);
             }
             rs.close();
@@ -109,7 +110,8 @@ public class ProdutoDAO {
                 p.setNome(rs.getString("nome"));
                 p.setFoto(rs.getString("foto"));
                 p.setPreco(rs.getDouble("preco"));
-                p.setQuantidade(rs.getInt("quantidade"));
+                p.setCategoriaId(rs.getInt("categoria_id"));
+                p.setQuantidade(rs.getInt("quantidade"));                
                 break;
             }
             rs.close();
