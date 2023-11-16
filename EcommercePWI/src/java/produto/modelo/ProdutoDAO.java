@@ -17,6 +17,7 @@ public class ProdutoDAO {
      * @param preco
      * @param foto
      * @param quantidade
+     * @param categoria
      * @return
      */
     public boolean inserir(String descricao, double preco, String foto, int quantidade, String categoria) {
@@ -69,12 +70,14 @@ public class ProdutoDAO {
         }
         return produtos;
     }
-        /**
-        * Método utilizado para excluir um produto
-        *
-        * @return
-        */
-        public boolean excluir(int id) {
+
+    /**
+     * Método utilizado para excluir um produto
+     *
+     * @param id
+     * @return
+     */
+    public boolean excluir(int id) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
@@ -90,7 +93,7 @@ public class ProdutoDAO {
         return sucesso;
     }
 
-    public Produto getProduto(Integer id) {
+    public Produto get(Integer id) {
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
@@ -98,23 +101,25 @@ public class ProdutoDAO {
             ps.setInt(1, id);
 
             ResultSet rs = ps.executeQuery();
+            Produto p = null;
             while (rs.next()) {
-                Produto p = new Produto();
+                p = new Produto();
                 p.setId(rs.getInt("id"));
                 p.setDescricao(rs.getString("descricao"));
                 p.setNome(rs.getString("nome"));
                 p.setFoto(rs.getString("foto"));
                 p.setPreco(rs.getDouble("preco"));
                 p.setQuantidade(rs.getInt("quantidade"));
-                return p;
+                break;
             }
             rs.close();
             ps.close();
             c.close();
+            return p;
+
         } catch (ClassNotFoundException | SQLException ex) {
             return null;
         }
 
-        return null;
     }
 }
