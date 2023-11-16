@@ -1,11 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@include file="../cabecalho.jsp" %>
+<%@include file="../../../cabecalho.jsp" %>
         <h1>Cadastrar um novo produto</h1>
-        <form action="NovoProduto" method="post">
+        <form action="InserirProduto" method="post">
             <div class="mb-3">
                 <label for="inputNomeProd" class="form-label">Nome</label>
-                <input type="text" name="nomeProd" class="form-control" id="inputNomeProd" aria-describedby="nomeProdHelp">
+                <input type="text" name="nome" class="form-control" id="inputNomeProd" aria-describedby="nomeProdHelp">
                 <div id="nomeProdHelp" class="form-text">Campo obrigatório.</div>
             </div>
             <div class="mb-3">
@@ -37,4 +37,4 @@
         <br/>
         <a href="Inicio" class="btn btn-primary">Voltar</a>
 
-<%@include file="../rodape.jsp" %>
+<%@include file="../../../rodape.jsp" %>
