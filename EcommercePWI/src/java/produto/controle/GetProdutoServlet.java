@@ -23,7 +23,7 @@ public class GetProdutoServlet extends HttpServlet {
 
         request.setAttribute("produto", produto);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/produto.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("produto/produto.jsp");
         dispatcher.forward(request, response);
     }
 
