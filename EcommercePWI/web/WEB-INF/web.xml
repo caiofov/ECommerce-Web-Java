@@ -59,16 +59,20 @@
         <servlet-class>produto.controle.AlterarProdutoServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>GetProdutoServlet</servlet-name>
+        <servlet-class>produto.controle.GetProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetAlterarProdutoServlet</servlet-name>
+        <servlet-class>produto.controle.GetAlterarProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AlterarContaServlet</servlet-name>
         <servlet-class>conta.controle.AlterarContaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirContaServlet</servlet-name>
         <servlet-class>conta.controle.ExcluirContaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>GetProdutoServlet</servlet-name>
-        <servlet-class>produto.controle.GetProdutoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
@@ -129,6 +133,10 @@
     <servlet-mapping>
         <servlet-name>GetProdutoServlet</servlet-name>
         <url-pattern>/GetProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAlterarProdutoServlet</servlet-name>
+        <url-pattern>/GetAlterarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirContaServlet</servlet-name>
