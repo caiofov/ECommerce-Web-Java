@@ -73,6 +73,41 @@ public class ProdutoDAO {
     }
 
     /**
+     * Método utilizado para listar todos os produtos em uma categoria
+     *
+     * @param categoriaId
+     * @return
+     */
+    public List<Produto> listarProdutosCategoria(int categoriaId) {
+        List<Produto> produtos = new ArrayList();
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM produto WHERE categoria_id=?");
+            ps.setInt(1, categoriaId);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Produto p = new Produto();
+                p.setId(rs.getInt("id"));
+                p.setDescricao(rs.getString("descricao"));
+                p.setNome(rs.getString("nome"));
+                p.setFoto(rs.getString("foto"));
+                p.setPreco(rs.getDouble("preco"));
+                p.setQuantidade(rs.getInt("quantidade"));
+                p.setCategoriaId(rs.getInt("categoria_id"));
+                produtos.add(p);
+            }
+            rs.close();
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return new ArrayList();
+        }
+        return produtos;
+    }
+
+    /**
      * Método utilizado para excluir um produto
      *
      * @param id
@@ -93,8 +128,8 @@ public class ProdutoDAO {
         }
         return sucesso;
     }
-        
-    public boolean atualizar(String descricao,double preco, String foto, int quantidade, int categoria, int id) {
+
+    public boolean atualizar(String descricao, double preco, String foto, int quantidade, int categoria, int id) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
@@ -114,7 +149,7 @@ public class ProdutoDAO {
             return false;
         }
         return sucesso;
-    }        
+    }
 
     public Produto get(Integer id) {
         try {
@@ -133,7 +168,7 @@ public class ProdutoDAO {
                 p.setFoto(rs.getString("foto"));
                 p.setPreco(rs.getDouble("preco"));
                 p.setCategoriaId(rs.getInt("categoria_id"));
-                p.setQuantidade(rs.getInt("quantidade"));                
+                p.setQuantidade(rs.getInt("quantidade"));
                 break;
             }
             rs.close();
