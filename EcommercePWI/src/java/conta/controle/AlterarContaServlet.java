@@ -33,7 +33,7 @@ public class AlterarContaServlet extends HttpServlet{
         } else {
             request.setAttribute("mensagem", "Não foi possível alterar os dados");
         }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/conta/alterar.jsp");//Path
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/perfil.jsp");//Path
         
         dispatcher.forward(request, response);
     }

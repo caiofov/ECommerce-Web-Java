@@ -122,6 +122,14 @@
         <servlet-name>AlterarContaServlet</servlet-name>
         <url-pattern>/AlterarConta</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetProdutoServlet</servlet-name>
+        <url-pattern>/GetProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetContaServlet</servlet-name>
+        <url-pattern>/GetConta</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
