@@ -7,6 +7,7 @@ package conta.controle;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import usuario.modelo.UsuarioDAO;
@@ -15,7 +16,7 @@ import usuario.modelo.UsuarioDAO;
  *
  * @author xyux2
  */
-public class AlterarContaServlet {
+public class AlterarContaServlet extends HttpServlet{
             protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));

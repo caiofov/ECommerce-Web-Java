@@ -103,6 +103,10 @@
         <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AlterarProdutoServlet</servlet-name>
+        <url-pattern>/AlterarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ExcluirContaServlet</servlet-name>
         <url-pattern>/ExcluirConta</url-pattern>
     </servlet-mapping>
