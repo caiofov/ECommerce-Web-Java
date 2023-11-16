@@ -23,7 +23,7 @@
         if (logado && usuario.isAdministrador()) {
     %>
     <div class="d-flex flex-row flex-align-center flex-justify-end">
-        <a title="Editar" class="text-decoration-none" href="EditarProduto?id=<%= produto.getId() %>">
+        <a title="Editar" class="text-decoration-none" href="GetAlterarProduto?id=<%= produto.getId() %>">
             <%@include file="../../../imagens/svg/pencil.svg" %>
         </a>
 
