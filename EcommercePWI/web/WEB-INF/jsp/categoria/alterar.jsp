@@ -13,7 +13,8 @@
     } else{
 %>
         <h1>Editar a categoria</h1>
-        <form action="AlterarCategoria?id=<%= categoria.getId() %>">
+        <form action="AlterarCategoria">
+            <input type="hidden" name="id" value="<%= categoria.getId()%>" /> 
             <div class="mb-3">
                 <label for="inputNomeCateg" class="form-label">Nome</label>
                 <input value="<%= categoria.getNome() %>" type="text" name="nome" class="form-control" id="inputNomeCateg" aria-describedby="nomeCategHelp">

@@ -35,7 +35,6 @@ public class GetAlterarCategoriaServlet extends HttpServlet {
         Categoria categoria = categoriaDAO.get(id);
 
         request.setAttribute("categoria", categoria);
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/categoria/alterar.jsp");
         dispatcher.forward(request, response);
     }
