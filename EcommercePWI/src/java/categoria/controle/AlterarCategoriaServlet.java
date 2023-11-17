@@ -32,7 +32,7 @@ public class AlterarCategoriaServlet  extends HttpServlet{
         } else {
             request.setAttribute("mensagem", "Não foi possível alterar os dados");
         }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/categoria/editar.jsp");//Path
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ListarCategoria");//Path
         
         dispatcher.forward(request, response);
     }
