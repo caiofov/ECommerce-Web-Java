@@ -134,7 +134,7 @@ public class ProdutoDAO {
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("UPDATE produto SET nome = ?,descricao = ?,preco = ?, foto = ?,quantidade = ?,categoria = ? WHERE id = ?");
+            PreparedStatement ps = c.prepareStatement("UPDATE produto SET nome = ?,descricao = ?,preco = ?, foto = ?,quantidade = ?,categoria_id = ? WHERE id = ?");
             // (nome, endereco, email, login, senha, administrador)
             ps.setString(1, nome);
             ps.setString(2, descricao);
