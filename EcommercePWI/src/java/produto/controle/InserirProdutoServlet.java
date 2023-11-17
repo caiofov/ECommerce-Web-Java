@@ -38,9 +38,9 @@ public class InserirProdutoServlet extends HttpServlet {
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         int categoria = Integer.parseInt(request.getParameter("categoria"));    
         ProdutoDAO produtoDAO = new ProdutoDAO();
-        boolean sucesso = produtoDAO.inserir(descricao,preco,foto,quantidade,categoria);
+        boolean sucesso = produtoDAO.inserir(nome,descricao,preco,foto,quantidade,categoria);
         if (sucesso) {
-            request.setAttribute("mensagem", "Produto inserida com sucesso");
+            request.setAttribute("mensagem", "Produto inserido com sucesso");
         } else {
             request.setAttribute("mensagem", "Não foi possível inserir o produto");
         }

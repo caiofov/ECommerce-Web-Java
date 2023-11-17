@@ -23,7 +23,7 @@ public class ExcluirProdutoServlet extends HttpServlet{
         ProdutoDAO produtoDAO = new ProdutoDAO();
         boolean sucesso = produtoDAO.excluir(id);
         if (sucesso) {
-            request.setAttribute("mensagem", "Produto excluída com sucesso");
+            request.setAttribute("mensagem", "Produto excluído com sucesso");
         } else {
             request.setAttribute("mensagem", "Não foi possível excluir a produto");
         }

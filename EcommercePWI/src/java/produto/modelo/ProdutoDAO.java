@@ -26,7 +26,7 @@ public class ProdutoDAO {
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("INSERT INTO produto (descricao, preco, foto, quantidade, categoria, nome) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO produto (descricao, preco, foto, quantidade, categoria_id, nome) VALUES (?, ?, ?, ?, ?, ?)");
             ps.setString(1, descricao);
             ps.setDouble(2, preco);
             ps.setString(3, foto);
@@ -132,7 +132,7 @@ public class ProdutoDAO {
         return sucesso;
     }
 
-    public boolean atualizar(String nome,String descricao, double preco, String foto, int quantidade, int categoria, int id) {
+    public boolean atualizar(String nome,String descricao, double preco, String foto, int quantidade, int categoria_id, int id) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
@@ -144,7 +144,7 @@ public class ProdutoDAO {
             ps.setDouble(3, preco);
             ps.setString(4, foto);
             ps.setInt(5, quantidade);
-            ps.setInt(6, categoria);
+            ps.setInt(6, categoria_id);
             ps.setInt(7, id);
             sucesso = (ps.executeUpdate() == 1);
             ps.close();
