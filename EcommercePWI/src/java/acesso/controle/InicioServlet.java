@@ -24,7 +24,6 @@ public class InicioServlet extends HttpServlet {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         List<Produto> produtos = produtoDAO.listarProdutosEmEstoque();
         request.setAttribute("produtosEmEstoque", produtos);
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyyhhmmss");
         Cookie cookie = null;
         Cookie[] cookies = request.getCookies();

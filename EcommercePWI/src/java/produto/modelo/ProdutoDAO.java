@@ -129,19 +129,20 @@ public class ProdutoDAO {
         return sucesso;
     }
 
-    public boolean atualizar(String descricao, double preco, String foto, int quantidade, int categoria, int id) {
+    public boolean atualizar(String nome,String descricao, double preco, String foto, int quantidade, int categoria, int id) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("UPDATE produto SET descricao = ?,preco = ?, foto = ?,quantidade = ?,categoria = ? WHERE id = ?");
+            PreparedStatement ps = c.prepareStatement("UPDATE produto SET nome = ?,descricao = ?,preco = ?, foto = ?,quantidade = ?,categoria = ? WHERE id = ?");
             // (nome, endereco, email, login, senha, administrador)
-            ps.setString(1, descricao);
-            ps.setDouble(2, preco);
-            ps.setString(3, foto);
-            ps.setInt(4, quantidade);
-            ps.setInt(5, categoria);
-            ps.setInt(6, id);
+            ps.setString(1, nome);
+            ps.setString(2, descricao);
+            ps.setDouble(3, preco);
+            ps.setString(4, foto);
+            ps.setInt(5, quantidade);
+            ps.setInt(6, categoria);
+            ps.setInt(7, id);
             sucesso = (ps.executeUpdate() == 1);
             ps.close();
             c.close();

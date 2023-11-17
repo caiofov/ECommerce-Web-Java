@@ -20,22 +20,23 @@ import usuario.modelo.UsuarioDAO;
 public class AlterarProdutoServlet extends HttpServlet{
             protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        int id = Integer.parseInt(request.getParameter("id"));   
+        String nome = request.getParameter("nome");
         String descricao = request.getParameter("descricao");
         double preco = Double.parseDouble(request.getParameter("preco"));
         String foto = request.getParameter("foto");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         int categoria = Integer.parseInt(request.getParameter("categoria"));    
-        int id = Integer.parseInt(request.getParameter("id"));   
+
         
         ProdutoDAO produtoDAO = new ProdutoDAO();
-        boolean sucesso = produtoDAO.atualizar(descricao,preco,foto,quantidade,categoria,id);
+        boolean sucesso = produtoDAO.atualizar(nome,descricao,preco,foto,quantidade,categoria,id);
         if (sucesso) {
             request.setAttribute("mensagem", "Dados alterados com sucesso");
         } else {
             request.setAttribute("mensagem", "Não foi possível alterar os dados");
         }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/produto/alterar.jsp");//Path
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Inicio");//Path
         
         dispatcher.forward(request, response);
     }

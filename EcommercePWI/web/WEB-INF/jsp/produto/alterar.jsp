@@ -15,11 +15,17 @@
     } else{
 %>
         <h1>Alterar um produto</h1>
-        <form action="AlterarProduto?id<%= produto.getId() %>" method="post">
+        <form action="AlterarProduto" method="post">
+            <input type="hidden" name="id" value="<%= produto.getId()%>" /> 
             <div class="mb-3">
                 <label for="inputNomeProd" class="form-label">Nome</label>
                 <input value="<%= produto.getNome() %>" type="text" name="nome" class="form-control" id="inputNomeProd" aria-describedby="nomeProdHelp">
                 <div id="nomeProdHelp" class="form-text">Campo obrigatório.</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputDesc" class="form-label">Descricao</label>
+                <input value="<%= produto.getDescricao() %>" type="text" name="descricao" class="form-control" id="inputDesc" aria-describedby="DescHelp">
+                <div id="DescHelp" class="form-text">Campo obrigatório.</div>
             </div>
             <div class="mb-3">
                 <label for="inputPreco" class="form-label">Preço</label>
@@ -31,8 +37,6 @@
                 <input value="<%= produto.getFoto() %>" type="text" name="foto" class="form-control" id="inputFoto" aria-describedby="fotoHelp">
                 <div id="fotoHelp" class="form-text">Campo obrigatório.</div>
             </div>
-
-            
             <div class="mb-3">
                 <label for="inputQtde" class="form-label">Quantidade em estoque</label>
                 <input value="<%= produto.getQuantidade() %>" type="number" name="quantidade" class="form-control" id="inputQtde" aria-describedby="qtdeHelp">
@@ -45,7 +49,7 @@
                 <input value="<%= produto.getCategoriaId() %>" type="number" name="categoria" class="form-control" id="inputCategoria" aria-describedby="categoriaHelp">
                 <div id="categoriaHelp" class="form-text">Campo obrigatório.</div>
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Editar</button>
         </form>
         <br/>
         <a href="Inicio" class="btn btn-primary">Voltar</a>
