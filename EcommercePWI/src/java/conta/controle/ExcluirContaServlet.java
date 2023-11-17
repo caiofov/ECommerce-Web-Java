@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package conta.controle;
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +16,9 @@ import usuario.modelo.UsuarioDAO;
  *
  * @author xyux2
  */
-public class ExcluirContaServlet extends HttpServlet{
-            protected void service(HttpServletRequest request, HttpServletResponse response)
+public class ExcluirContaServlet extends HttpServlet {
+        @Override
+        protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -26,7 +28,7 @@ public class ExcluirContaServlet extends HttpServlet{
         } else {
             request.setAttribute("mensagem", "Não foi possível excluir o usuario");
         }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Inicio");//Path
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Logout");
         
         dispatcher.forward(request, response);
     }

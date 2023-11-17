@@ -78,6 +78,14 @@
         <servlet-name>ExcluirContaServlet</servlet-name>
         <servlet-class>conta.controle.ExcluirContaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetContaServlet</servlet-name>
+        <servlet-class>conta.controle.GetContaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarPerfilServlet</servlet-name>
+        <servlet-class>conta.controle.AlterarPerfilServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -153,6 +161,14 @@
     <servlet-mapping>
         <servlet-name>AlterarContaServlet</servlet-name>
         <url-pattern>/AlterarConta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetContaServlet</servlet-name>
+        <url-pattern>/GetConta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarPerfilServlet</servlet-name>
+        <url-pattern>/AlterarPerfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

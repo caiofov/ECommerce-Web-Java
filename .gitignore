@@ -1,3 +1,6 @@
 EcommercePWI/nbproject/private
 EcommercePWI/build
 EcommercePWI/dist
+EcommercePWI/nbproject/private/private.properties
+EcommercePWI/nbproject/private/private.xml
+EcommercePWI/src/java/config/Config.java

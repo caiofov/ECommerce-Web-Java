@@ -52,7 +52,7 @@
                     </a>
                     
                     <div class="d-flex flex-row align-items-center">
-                    <a title="Meu Perfil" class="text-decoration-none align-items-center" href="perfil.jsp?id=<%= usuario.getId()%>">
+                    <a title="Meu Perfil" class="text-decoration-none align-items-center" href="GetConta?id=<%= usuario.getId()%>">
                         <%@include file="imagens/svg/user.svg" %>
                         <%= usuario.getNome() %>
                     </a>

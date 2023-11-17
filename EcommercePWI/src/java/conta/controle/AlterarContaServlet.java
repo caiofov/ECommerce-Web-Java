@@ -11,32 +11,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import usuario.modelo.UsuarioDAO;
+import usuario.modelo.Usuario;
 
 /**
  *
  * @author xyux2
  */
 public class AlterarContaServlet extends HttpServlet{
+            @Override
             protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String nome = (request.getParameter("nome"));
-        String endereco = (request.getParameter("endereco"));
-        String email = (request.getParameter("email"));       
-        String login = (request.getParameter("login"));
-        String senha = (request.getParameter("senha"));
         
+        Usuario perfilUsuario = null;
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        boolean sucesso = usuarioDAO.atualizar(nome,endereco,email,login,senha,id);
-        if (sucesso) {
-            request.setAttribute("mensagem", "Dados alterados com sucesso");
+        perfilUsuario = usuarioDAO.getPerfil(id);
+        if (perfilUsuario != null) {
+            request.setAttribute("perfil", perfilUsuario);
         } else {
-            request.setAttribute("mensagem", "Não foi possível alterar os dados");
+            request.setAttribute("mensagem", "Não foi possível recuperar os dados");
         }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/conta/alterar.jsp");//Path
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("alterarUsuario.jsp");
         
         dispatcher.forward(request, response);
     }
-
-    
 }
