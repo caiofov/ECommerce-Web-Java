@@ -8,6 +8,13 @@
                 <input type="text" name="nome" class="form-control" id="inputNomeProd" aria-describedby="nomeProdHelp">
                 <div id="nomeProdHelp" class="form-text">Campo obrigatório.</div>
             </div>
+            
+            <div class="mb-3">
+                <label for="inputDescProd" class="form-label">Descrição</label>
+                <input type="text" name="descricao" class="form-control" id="inputDescProd" aria-describedby="nomeDescHelp">
+                <div id="nomeDescHelp" class="form-text">Campo obrigatório.</div>
+            </div>
+            
             <div class="mb-3">
                 <label for="inputPreco" class="form-label">Preço</label>
                 <input type="number" name="preco" class="form-control" id="inputPreco" aria-describedby="precoHelp">

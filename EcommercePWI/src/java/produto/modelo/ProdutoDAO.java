@@ -13,6 +13,7 @@ public class ProdutoDAO {
     /**
      * Método utilizado para inserir um novo produto
      *
+     * @param nome
      * @param descricao
      * @param preco
      * @param foto
@@ -20,17 +21,19 @@ public class ProdutoDAO {
      * @param categoria
      * @return
      */
-    public boolean inserir(String descricao, double preco, String foto, int quantidade, int categoria) {
+    public boolean inserir(String nome, String descricao, double preco, String foto, int quantidade, int categoria) {
         boolean sucesso = false;
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement ps = c.prepareStatement("INSERT INTO produto (descricao, preco, foto, quantidade, categoria) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO produto (descricao, preco, foto, quantidade, categoria, nome) VALUES (?, ?, ?, ?, ?, ?)");
             ps.setString(1, descricao);
             ps.setDouble(2, preco);
             ps.setString(3, foto);
             ps.setInt(4, quantidade);
             ps.setInt(5, categoria);
+            ps.setString(6, nome);
+
             sucesso = (ps.executeUpdate() == 1);
             ps.close();
             c.close();

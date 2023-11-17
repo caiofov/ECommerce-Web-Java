@@ -31,6 +31,7 @@ public class InserirProdutoServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //colunas dos produtos
+        String nome = request.getParameter("nome");
         String descricao = request.getParameter("descricao");
         double preco = Double.parseDouble(request.getParameter("preco"));
         String foto = request.getParameter("foto");
