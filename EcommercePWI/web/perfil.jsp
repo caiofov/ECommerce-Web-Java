@@ -21,14 +21,12 @@
             <div class="col-md-5 border-right">
                 <div class="p-3 py-5">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Settings</h4>
+                        <h4 class="text-right">Meu perfil</h4>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Nome</label><input type="text" class="form-control" value= <%= usuarioPerfil.getNome()%> ></div>
-                        <div class="col-md-12"><label class="labels">Endereço</label><input type="text" class="form-control" value= <%= usuarioPerfil.getEndereco()%> ></div>
-                        <div class="col-md-12"><label class="labels">E-mail</label><input type="text" class="form-control" value= <%= usuarioPerfil.getEmail()%> ></div>
-                        <div class="col-md-12"><label class="labels">Login</label><input type="text" class="form-control" value= <%= usuarioPerfil.getLogin()%> ></div>
-                        <div class="col-md-12"><label class="labels">Senha</label><input type="text" class="form-control" value= <%= usuarioPerfil.getSenha()%> ></div>
+                        <p><b>Nome: </b>  <%= usuarioPerfil.getNome()%> </p>
+                        <p><b>E-mail: </b> <%= usuarioPerfil.getEmail()%> </p>
+                        <p><b>Login: </b> <%= usuarioPerfil.getLogin()%> </p>
                     </div>
                 </div>
                 <div class="d-flex flex-row flex-align-center flex-justify-end">
