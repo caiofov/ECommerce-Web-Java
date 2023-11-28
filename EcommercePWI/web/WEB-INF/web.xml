@@ -2,6 +2,14 @@
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <filter>
+        <filter-name>SegurancaFilter</filter-name>
+        <filter-class>acesso.controle.SegurancaFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SegurancaFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>InicioServlet</servlet-name>
         <servlet-class>acesso.controle.InicioServlet</servlet-class>
@@ -86,6 +94,34 @@
         <servlet-name>AlterarPerfilServlet</servlet-name>
         <servlet-class>conta.controle.AlterarPerfilServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdicionarProdutoCarrinhoServlet</servlet-name>
+        <servlet-class>carrinhocompras.controle.AdicionarProdutoCarrinhoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoverProdutoCarrinhoServlet</servlet-name>
+        <servlet-class>carrinhocompras.controle.RemoverProdutoCarrinhoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadProdutoFotoServlet</servlet-name>
+        <servlet-class>produto.controle.UploadProdutoFotoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExibirProdutoFotoServlet</servlet-name>
+        <servlet-class>produto.controle.ExibirProdutoFotoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadProdutoFotoFormServlet</servlet-name>
+        <servlet-class>produto.controle.UploadProdutoFotoFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaInserirServlet</servlet-name>
+        <servlet-class>venda.controle.VendaInserirServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioProdutosFaltandoServlet</servlet-name>
+        <servlet-class>relatorios.RelatorioProdutosFaltandoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -169,6 +205,34 @@
     <servlet-mapping>
         <servlet-name>AlterarPerfilServlet</servlet-name>
         <url-pattern>/AlterarPerfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarProdutoCarrinhoServlet</servlet-name>
+        <url-pattern>/AdicionarProdutoCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoverProdutoCarrinhoServlet</servlet-name>
+        <url-pattern>/RemoverProdutoCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadProdutoFotoServlet</servlet-name>
+        <url-pattern>/admin/UploadProdutoFoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExibirProdutoFotoServlet</servlet-name>
+        <url-pattern>/ExibirProdutoFoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadProdutoFotoFormServlet</servlet-name>
+        <url-pattern>/UploadProdutoFotoForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaInserirServlet</servlet-name>
+        <url-pattern>/VendaInserir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioProdutosFaltandoServlet</servlet-name>
+        <url-pattern>/RelatorioProdutosFaltando</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
