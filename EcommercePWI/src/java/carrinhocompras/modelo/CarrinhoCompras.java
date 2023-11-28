@@ -63,7 +63,7 @@ public class CarrinhoCompras {
                 int quantidade = Integer.parseInt(item[1]);
 
                 CarrinhoCompraItem carrinhoCompraItem = new CarrinhoCompraItem();
-                carrinhoCompraItem.setProduto(produtoDAO.obter(id));
+                carrinhoCompraItem.setProduto(produtoDAO.get(id));
                 carrinhoCompraItem.setQuantidade(quantidade);
 
                 resultado.add(carrinhoCompraItem);
