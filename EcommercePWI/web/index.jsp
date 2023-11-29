@@ -1,3 +1,6 @@
+<%@page import="carrinhocompras.modelo.CarrinhoCompras"%>
+<%@page import="carrinhocompras.modelo.CarrinhoCompraItem"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="produto.modelo.Produto"%>
 <%@page import="java.util.List"%>
 <%@include file="cabecalho.jsp" %>
