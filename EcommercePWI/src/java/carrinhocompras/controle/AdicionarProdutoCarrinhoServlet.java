@@ -25,6 +25,9 @@ public class AdicionarProdutoCarrinhoServlet extends HttpServlet {
                 }
             }
         }
+        if (cookie == null) {
+            cookie = new Cookie("smdecommerce.carrinho", "");
+        } 
         String novoCookieString = CarrinhoCompras.adicionar(cookie.getValue(), produtoId);
         cookie.setValue(novoCookieString);
         cookie.setMaxAge(Integer.MAX_VALUE);
