@@ -28,7 +28,6 @@ public class Carrinho extends HttpServlet {
             cookie = new Cookie("smdecommerce.carrinho", "");
         } 
         response.addCookie(cookie);
-        request.setAttribute("produtos", cookie.getValue());
         RequestDispatcher dispatcher = request.getRequestDispatcher("carrinho.jsp");
         dispatcher.forward(request, response);
     }
