@@ -46,8 +46,7 @@
                     if (logado) {
                     %>
 
-                    <%-- TODO: carrinho de compras --%>
-                    <a title="Meu carrinho" class="text-decoration-none" href="#">
+                    <a title="Meu carrinho" class="text-decoration-none" href="Carrinho">
                         <%@include file="imagens/svg/cart.svg" %>
                     </a>
                     
