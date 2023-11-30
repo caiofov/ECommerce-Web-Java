@@ -3,6 +3,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="produto.modelo.Produto"%>
 <%@page import="java.util.List"%>
+
 <%@include file="cabecalho.jsp" %>
 <%
     Cookie cookie = null;
@@ -22,7 +23,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <%-- //TODO: colocar uma imagens pequena dos produtos--%>
             <th scope="col">Produto</th>
             <th scope="col">Quantidade</th>
             <th scope="col">Preço R$</th>
@@ -31,40 +32,42 @@
         </tr>
     </thead>
     <tbody>
-<%
-        DecimalFormat realFormat = new DecimalFormat("#,##0.00");
-        List<CarrinhoCompraItem> itens = (List<CarrinhoCompraItem>) CarrinhoCompras.obterCarrinho(cookie.getValue());
-        double total = 0;
-        if (itens != null && !itens.isEmpty()) {
-            for (int i = 0; i < itens.size(); i++) {
-            %>
+        <%
+                DecimalFormat realFormat = new DecimalFormat("#,##0.00");
+                List<CarrinhoCompraItem> itens = (List<CarrinhoCompraItem>) CarrinhoCompras.obterCarrinho(cookie.getValue());
+                double total = 0;
+                if (itens != null && !itens.isEmpty()) {
+                    for (int i = 0; i < itens.size(); i++) {
+        %>
         <tr>
-            <th scope="row"><%= i + 1 %></th>
-            <td><%= itens.get(i).getProduto().getDescricao() %></td>
+            <% Produto produto = itens.get(i).getProduto();%>
+            <td><a href="GetProduto?id=<%= produto.getId() %>"><%= produto.getNome() %></a></td>
 
             <td><%= itens.get(i).getQuantidade() %></td>
-            
-            <td><%= realFormat.format(itens.get(i).getProduto().getPreco()) %></td>
-            
-            <td>
 
-            <%-- //TODO: botão para remover só um (não todos)--%>
-            <%= realFormat.format(itens.get(i).getProduto().getPreco() * itens.get(i).getQuantidade()) %>
-            <a style="text-decoration:none" href="AdicionarProdutoCarrinho?produtoId=<%= itens.get(i).getProduto().getId() %>&irPara=Carrinho">+</a>
-            </td>
+            <td><%= realFormat.format(produto.getPreco()) %></td>
 
             <td>
-                <a title="Remover" href="RemoverProdutoCarrinho?produtoId=<%= itens.get(i).getProduto().getId() %>&irPara=Carrinho"  aria-disabled="true">
-                    <%@include file="../../../imagens/svg/trash.svg" %>
+
+                <%-- //TODO: botão para remover só um (não todos)--%>
+                <%= realFormat.format(produto.getPreco() * itens.get(i).getQuantidade()) %>
+                <a class="text-decoration-none" href="AdicionarProdutoCarrinho?produtoId=<%= produto.getId() %>&irPara=Carrinho">
+                    <%@include file="imagens/svg/add.svg" %>
                 </a>
             </td>
-        
+
+            <td>
+                <a title="Remover" href="RemoverProdutoCarrinho?produtoId=<%= produto.getId() %>&irPara=Carrinho"  aria-disabled="true">
+                    <%@include file="imagens/svg/trash.svg" %>
+                </a>
+            </td>
+
         </tr>
-            <%
-                total += itens.get(i).getProduto().getPreco() * itens.get(i).getQuantidade();
-            }
-        }  
-%>
+        <%
+            total += produto.getPreco() * itens.get(i).getQuantidade();
+        }
+    }  
+        %>
     </tbody>
 </table>
 <h4>Total R$: <%= realFormat.format(total) %></h4>
