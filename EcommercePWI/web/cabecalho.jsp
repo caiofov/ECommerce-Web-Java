@@ -46,6 +46,10 @@
                     if (logado) {
                     %>
 
+                    <a title="Minhas compras" class="text-decoration-none" href="Pedidos">
+                        <%@include file="imagens/svg/basket.svg" %>
+                    </a>
+                    
                     <a title="Meu carrinho" class="text-decoration-none" href="Carrinho">
                         <%@include file="imagens/svg/cart.svg" %>
                     </a>
