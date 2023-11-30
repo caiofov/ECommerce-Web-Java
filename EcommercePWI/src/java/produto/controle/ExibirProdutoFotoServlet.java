@@ -4,6 +4,7 @@
  */
 package produto.controle;
 
+import static config.Config.UPLOAD_PATH;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,20 +21,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ExibirProdutoFotoServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        File arquivoFoto = new File("/home/leoomoreira/Upload/" + id + ".png");
+        File arquivoFoto = new File(UPLOAD_PATH + id + ".png");
         if (arquivoFoto.exists()) {
             ServletContext context = this.getServletContext();
             String mimeType = context.getMimeType(arquivoFoto.getAbsolutePath());
