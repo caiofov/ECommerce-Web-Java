@@ -126,6 +126,10 @@
         <servlet-name>Carrinho</servlet-name>
         <servlet-class>carrinhocompras.controle.Carrinho</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Pedidos</servlet-name>
+        <servlet-class>venda.controle.Pedidos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -241,6 +245,10 @@
     <servlet-mapping>
         <servlet-name>Carrinho</servlet-name>
         <url-pattern>/Carrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Pedidos</servlet-name>
+        <url-pattern>/Pedidos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
