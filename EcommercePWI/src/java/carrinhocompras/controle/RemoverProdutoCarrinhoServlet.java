@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Leonardo Oliveira Moreira
- *
  * Classe que representa a ação de remover o produto do carrinho de compras
  */
 public class RemoverProdutoCarrinhoServlet extends HttpServlet {
@@ -31,10 +28,13 @@ public class RemoverProdutoCarrinhoServlet extends HttpServlet {
                 }
             }
         }
-        String novoCookieString = CarrinhoCompras.remover(cookie.getValue(), produtoId);
-        cookie.setValue(novoCookieString);
-        cookie.setMaxAge(Integer.MAX_VALUE);
-        response.addCookie(cookie);
+        if (cookie != null) {
+            String novoCookieString = CarrinhoCompras.remover(cookie.getValue(), produtoId);
+            cookie.setValue(novoCookieString);
+            cookie.setMaxAge(Integer.MAX_VALUE);
+            response.addCookie(cookie);
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Inicio");
         dispatcher.forward(request, response);
     }
