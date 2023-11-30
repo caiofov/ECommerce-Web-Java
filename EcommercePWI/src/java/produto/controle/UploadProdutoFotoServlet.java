@@ -4,6 +4,7 @@
  */
 package produto.controle;
 
+import static config.Config.UPLOAD_PATH;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -43,23 +44,23 @@ public class UploadProdutoFotoServlet extends HttpServlet {
         if (isMultipart) {
             try {
                 DiskFileItemFactory factory = new DiskFileItemFactory();
-                factory.setRepository(new File("/home/leoomoreira/Upload/temp"));
+                factory.setRepository(new File(UPLOAD_PATH + "temp"));
                 ServletFileUpload upload = new ServletFileUpload(factory);
                 List<FileItem> items = upload.parseRequest(new ServletRequestContext(request));
                 Iterator<FileItem> iter = items.iterator();
-                
+
                 while (iter.hasNext()) {
                     FileItem item = iter.next();
                     if (!item.isFormField() && item.getFieldName().equals("foto")) {
                         foto = item;
                     }
-                    
+
                     if (item.isFormField() && item.getFieldName().equals("id")) {
                         id = Integer.parseInt(item.getString());
                     }
                 }
                 if (id != -1 && foto != null) {
-                    foto.write(new File("/home/leoomoreira/Upload/" + id + foto.getName().substring(foto.getName().lastIndexOf("."))));
+                    foto.write(new File(UPLOAD_PATH + id + foto.getName().substring(foto.getName().lastIndexOf("."))));
                     sucesso = true;
                 }
             } catch (Exception ex) {
