@@ -13,17 +13,6 @@
             </a>
         </div>
 
-        <%
-            if (request.getAttribute("mensagem") != null) {
-        %>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <%= request.getAttribute("mensagem") %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <%
-            }
-        %>
-
         <%-- verificar se existem categorias --%>
         <% 
             List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
