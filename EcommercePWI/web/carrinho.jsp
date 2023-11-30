@@ -41,10 +41,24 @@
         <tr>
             <th scope="row"><%= i + 1 %></th>
             <td><%= itens.get(i).getProduto().getDescricao() %></td>
+
             <td><%= itens.get(i).getQuantidade() %></td>
+            
             <td><%= realFormat.format(itens.get(i).getProduto().getPreco()) %></td>
-            <td><%= realFormat.format(itens.get(i).getProduto().getPreco() * itens.get(i).getQuantidade()) %></td>
-            <td><a href="RemoverProdutoCarrinho?produtoId=<%= itens.get(i).getProduto().getId() %>" class="btn btn-primary" role="button" aria-disabled="true">Remover</a></td>
+            
+            <td>
+
+            <%-- //TODO: botão para remover só um (não todos)--%>
+            <%= realFormat.format(itens.get(i).getProduto().getPreco() * itens.get(i).getQuantidade()) %>
+            <a style="text-decoration:none" href="AdicionarProdutoCarrinho?produtoId=<%= itens.get(i).getProduto().getId() %>&irPara=Carrinho">+</a>
+            </td>
+
+            <td>
+                <a title="Remover" href="RemoverProdutoCarrinho?produtoId=<%= itens.get(i).getProduto().getId() %>&irPara=Carrinho"  aria-disabled="true">
+                    <%@include file="../../../imagens/svg/trash.svg" %>
+                </a>
+            </td>
+        
         </tr>
             <%
                 total += itens.get(i).getProduto().getPreco() * itens.get(i).getQuantidade();
