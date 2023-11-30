@@ -18,6 +18,8 @@ public class RemoverProdutoCarrinhoServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int produtoId = Integer.parseInt(request.getParameter("produtoId"));
+        String irPara = request.getParameter("irPara"); //diz para onde o servlet deve redirecionar (opcional)
+
         Cookie cookie = null;
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -35,7 +37,8 @@ public class RemoverProdutoCarrinhoServlet extends HttpServlet {
             response.addCookie(cookie);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Inicio");
+        request.setAttribute("mensagem", "Produto removido com sucesso. <a href='Carrinho'>Ver</a>");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(irPara != null ? "/" + irPara : "/Inicio");
         dispatcher.forward(request, response);
     }
 

@@ -15,6 +15,7 @@ public class AdicionarProdutoCarrinhoServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int produtoId = Integer.parseInt(request.getParameter("produtoId"));
+        String irPara = request.getParameter("irPara"); //diz para onde o servlet deve redirecionar (opcional)
         Cookie cookie = null;
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -27,12 +28,13 @@ public class AdicionarProdutoCarrinhoServlet extends HttpServlet {
         }
         if (cookie == null) {
             cookie = new Cookie("smdecommerce.carrinho", "");
-        } 
+        }
         String novoCookieString = CarrinhoCompras.adicionar(cookie.getValue(), produtoId);
         cookie.setValue(novoCookieString);
         cookie.setMaxAge(Integer.MAX_VALUE);
         response.addCookie(cookie);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Inicio");
+        request.setAttribute("mensagem", "Produto adicionado com sucesso. <a href='Carrinho'>Ver</a>");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(irPara != null ? "/" + irPara : "/Inicio");
         dispatcher.forward(request, response);
     }
 
