@@ -21,7 +21,7 @@
                     <p class="card-text"><b>R$ <%= p.getPrecoString() %></b> - <%= p.getDescricao() %></p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted"><a href="AdicionarProdutoCarrinho?produtoId=<%= p.getId()%>" class="btn btn-primary">Comprar</a></small>
+                    <small class="text-muted"><a href="AdicionarProdutoCarrinho?produtoId=<%= p.getId()%>" class="btn btn-warning">Comprar</a></small>
                 </div>
             </div>
         </div>

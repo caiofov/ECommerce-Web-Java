@@ -10,7 +10,7 @@
     Categoria categoria = (Categoria) request.getAttribute("categoria");
     if (produto == null) {
 %>
-    <p>Produto não encontrado</p>
+<p>Produto não encontrado</p>
 <%
     } else{
 %>
@@ -40,16 +40,16 @@
     <b>R$ <%= produto.getPrecoString()%></b>
 
     <div class="d-flex flex-column flex-align-center">
-        <!-- TODO comprar produto-->
-        <button type="button" class="btn btn-warning"><%@include file="../../../../imagens/svg/basket.svg" %> Comprar</button>    <small> (<%= produto.getQuantidade()%> produto(s) em estoque)</small>
+        <a href="AdicionarProdutoCarrinho?produtoId=<%= produto.getId()%>" class="btn btn-warning"><%@include file="../../../../imagens/svg/basket.svg" %> Comprar</a>
+        <small> (<%= produto.getQuantidade()%> produto(s) em estoque)</small>
     </div>
 </div>
 
 <div class="d-flex flex-row flex-align-center">
     <img width="30%" height="auto" class="figure-img img-thumbnail rounded" alt="<%= produto.getNome()%>" src="<%= produto.getFoto()%>"/>
     <div class="d-flex flex-column">
-    <small> Categoria: <a href="GetCategoria?id=<%= categoria.getId() %>"><%= categoria.getNome() %></a></small>
-    <p><%= produto.getDescricao()%></p>
+        <small> Categoria: <a href="GetCategoria?id=<%= categoria.getId() %>"><%= categoria.getNome() %></a></small>
+        <p><%= produto.getDescricao()%></p>
     </div>
 </div>
 
