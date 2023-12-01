@@ -134,6 +134,12 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>acesso.controle.AdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>
+            PedidosAdm</servlet-name>
+        <servlet-class>
+            venda.controle.PedidosAdm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -258,6 +264,11 @@
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/admin/Admin</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidosAdm</servlet-name>
+        <url-pattern>/PedidosAdm</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

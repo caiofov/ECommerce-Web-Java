@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import pedido.modelo.Pedido;
 import venda.modelo.VendaDAO;
 
-public class Pedidos extends HttpServlet {
+public class PedidosAdm extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int id = Integer.parseInt(request.getParameter("id"));
-        
         VendaDAO dao = new VendaDAO();
-        ArrayList<Pedido> pedidos = dao.getPedidos(id);
+        ArrayList<Pedido> pedidos = dao.getPedidosAdm();
 
         request.setAttribute("pedidos", pedidos);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("pedidos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/pedidosadm.jsp");
         dispatcher.forward(request, response);
     }
 
