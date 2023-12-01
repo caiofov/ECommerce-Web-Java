@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <filter>
         <filter-name>SegurancaFilter</filter-name>
         <filter-class>acesso.controle.SegurancaFilter</filter-class>
@@ -121,6 +119,14 @@
     <servlet>
         <servlet-name>RelatorioProdutosFaltandoServlet</servlet-name>
         <servlet-class>relatorios.RelatorioProdutosFaltandoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioTotalComprasServlet</servlet-name>
+        <servlet-class>relatorios.RelatorioTotalComprasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioFaturamentoDiaServlet</servlet-name>
+        <servlet-class>relatorios.RelatorioFaturamentoDiaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Carrinho</servlet-name>
@@ -255,6 +261,14 @@
     <servlet-mapping>
         <servlet-name>RelatorioProdutosFaltandoServlet</servlet-name>
         <url-pattern>/RelatorioProdutosFaltando</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioTotalComprasServlet</servlet-name>
+        <url-pattern>/RelatorioTotalCompras</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioFaturamentoDiaServlet</servlet-name>
+        <url-pattern>/RelatorioFaturamentoDia</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Carrinho</servlet-name>

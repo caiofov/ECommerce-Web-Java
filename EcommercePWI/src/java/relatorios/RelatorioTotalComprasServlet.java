@@ -5,29 +5,28 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import produto.modelo.Produto;
-import produto.modelo.ProdutoDAO;
+import venda.modelo.VendaDAO;
 
 /**
  * Classe que exporta um relatório dos produtos que estão faltando em estoque
  */
-public class RelatorioProdutosFaltandoServlet extends HttpServlet {
+public class RelatorioTotalComprasServlet extends HttpServlet {
 
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try (PrintWriter relatorio = new PrintWriter(byteArrayOutputStream)) {
-            ProdutoDAO produtoDAO = new ProdutoDAO();
-            List<Produto> produtos = produtoDAO.listarProdutosFaltando();
-            relatorio.print("ID ----- NOME ----- PREÇO \n");
-            for (Produto p : produtos) {
-                relatorio.print(p.getId() + "\t " + p.getNome() + "\t    " + p.getPreco() + "\n");
+            VendaDAO vendaDAO = new VendaDAO();
+            ArrayList<ArrayList> pedidosPorCliente = vendaDAO.listarTotalPedidosPorClienteAno();
+            relatorio.print("ID ----- NOME ----- NÚMERO DE PEDIDOS \n");
+            for (int i = 0; i < pedidosPorCliente.size(); i++) {
+                relatorio.print(pedidosPorCliente.get(i).get(0) + "\t " + pedidosPorCliente.get(i).get(1) + "\t" + pedidosPorCliente.get(i).get(2) + "\n");
             }
             relatorio.flush();
         }

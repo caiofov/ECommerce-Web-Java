@@ -5,7 +5,6 @@ import java.sql.*;
 import carrinhocompras.modelo.CarrinhoCompraItem;
 import java.util.ArrayList;
 import java.util.List;
-import jdk.internal.net.http.common.Pair;
 import pedido.modelo.Pedido;
 
 /**
@@ -186,6 +185,62 @@ public class VendaDAO {
             return null;
         }
         return pedidos;
+    }
+    
+    /**
+     * Método utilizado para listar total de compras por cliente no ano
+     *
+     * @return
+     */
+    public ArrayList<ArrayList> listarTotalPedidosPorClienteAno() {
+        ArrayList<ArrayList> pedidosPorCliente = new ArrayList();
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement(
+                    "SELECT u.id, u.nome, COUNT(v.id) AS npedidos FROM venda v JOIN usuario u ON v.usuario_id = u.id WHERE v.data >= to_timestamp('01-01-2023 00:00:01', 'dd-mm-yyyy hh24:mi:ss') AND v.data <= CURRENT_TIMESTAMP GROUP BY u.id ORDER BY npedidos DESC");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ArrayList<Object> cliente = new ArrayList();
+                cliente.add(rs.getInt(1));
+                cliente.add(rs.getString(2));
+                cliente.add(rs.getInt(3));
+                pedidosPorCliente.add(cliente);
+            }
+            rs.close();
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            String errorMessage = ex.getMessage();
+            ArrayList al = new ArrayList();
+            al.add(errorMessage);
+            return al;
+        }
+        return pedidosPorCliente;
+    }
+    
+    public ArrayList<ArrayList> listarFaturamentoPorDiaAno() {
+        ArrayList<ArrayList> datas = new ArrayList();
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement(
+                    "SELECT v.data, SUM(pr.preco * vp.quantidade) AS soma FROM venda v JOIN venda_produto vp on v.id = vp.venda_id JOIN produto pr on vp.produto_id = pr.id WHERE v.data >= to_timestamp('01-01-2023 00:00:01', 'dd-mm-yyyy hh24:mi:ss') AND v.data <= CURRENT_TIMESTAMP GROUP BY v.data ORDER BY soma ASC");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ArrayList<Object> data = new ArrayList();
+                data.add(rs.getString(1));
+                data.add(rs.getFloat(2));
+                datas.add(data);
+            }
+            rs.close();
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            ArrayList<ArrayList> al = new ArrayList<>();
+            return al;
+        }
+        return datas;
     }
 
 }

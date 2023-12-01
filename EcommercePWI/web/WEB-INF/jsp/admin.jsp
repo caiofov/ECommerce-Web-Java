@@ -15,7 +15,13 @@
         <a href="${pageContext.request.contextPath}/PedidosAdm">Pedidos</a>
     </li>
     <li class="nav-item">
-        <a href="${pageContext.request.contextPath}/RelatorioProdutosFaltando">RelatÃ³rio de produtos</a>
+        <a href="${pageContext.request.contextPath}/RelatorioProdutosFaltando">Relatório de Produtos Esgotados</a>
+    </li>
+    <li class="nav-item">
+        <a href="${pageContext.request.contextPath}/RelatorioTotalCompras">Relatório Pedidos por Usuário</a>
+    </li>
+    <li class="nav-item">
+        <a href="${pageContext.request.contextPath}/RelatorioFaturamentoDia">Relatório de Faturamento por Dia</a>
     </li>
 </ul>
 <% } %>
