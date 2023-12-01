@@ -67,6 +67,7 @@ ALTER SEQUENCE public.categoria_id_seq OWNED BY public.categoria.id;
 
 CREATE TABLE public.produto (
     id integer NOT NULL,
+    nome character varying NOT NULL,
     descricao character varying NOT NULL,
     preco numeric NOT NULL,
     foto character varying,
@@ -246,9 +247,9 @@ INSERT INTO public.categoria VALUES (1, 'VIDEOGAME');
 -- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.produto VALUES (1, 'PLAYSTATION 3', 990.9, NULL, 10, 1);
-INSERT INTO public.produto VALUES (2, 'PLAYSTATION 4', 2990.9, NULL, 10, 1);
-
+INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id, nome) VALUES (1, 'Video game Playstation 3', 990.9, 'https://4.imimg.com/data4/ED/OP/MY-23263516/sony-ps3.png', 5, 1,'Playstation 3');
+INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id, nome) VALUES (2, 'Video game Playstation 4 <br> A PlayStation 4 é uma consola de videojogos, da oitava geração com arquitetura x86, produzida pela empresa Sony Interactive Entertainment e lançada em Novembro de 2013, como a quarta edição da série PlayStation, sucessora da PlayStation 3, competindo directamente com a Wii U da Nintendo e, com a Xbox One da Microsoft.', 2990.9, 'https://www.playinformatica.net.br/loja/img/prod/playstation-4-slim-1tb-sony_62.jpg', 3, 1, 'Playstation 4');
+INSERT INTO public.produto (id, descricao, preco, foto, quantidade, categoria_id, nome) VALUES (3, 'Incrível xícara com o logo da linguagem de programação JAVA - perfeito para programadores!', 50, 'https://cdn.awsli.com.br/1225/1225697/produto/47027787/caneca-java-logo-3ff0c50b.jpg', 10, 3, 'Xícara Java');
 
 --
 -- TOC entry 3006 (class 0 OID 90473)
