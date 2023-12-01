@@ -75,7 +75,7 @@
                         <%= usuario.getNome() %>
                     </a>
 
-                        <form class="d-flex" action="Logout" method="get">
+                        <form class="d-flex" action="${pageContext.request.contextPath}/Logout" method="get">
                             <button class="btn btn-outline-danger" type="submit">Sair</button>
                         </form>
                     </div>
@@ -84,7 +84,7 @@
                     } else { 
                     %>
                     <%-- Se não tiver logado, é exibido um formulário de login --%>
-                    <form class="d-flex" action="Login" method="post">
+                    <form class="d-flex" action="${pageContext.request.contextPath}/Login" method="post">
                         <input class="form-control me-2" type="text" name="login" placeholder="Login" aria-label="Login" required>
                         <input class="form-control me-2" type="password" name="senha" placeholder="Senha" aria-label="Senha" required>
                         <button class="btn btn-outline-primary" type="submit">Entrar</button>
