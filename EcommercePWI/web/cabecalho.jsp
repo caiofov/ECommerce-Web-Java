@@ -16,8 +16,8 @@
         %>
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light border-bottom">
             <div class="container-fluid">
-                <a class="navbar-brand" href="Inicio">
-                    <img src="imagens/logo.png" alt="" width="26" height="26" class="d-inline-block align-text-top">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}">
+                    <img src="${pageContext.request.contextPath}/imagens/logo.png" alt="" width="26" height="26" class="d-inline-block align-text-top">
                     smdecommerce
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler01" aria-controls="navbarToggler01" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +32,7 @@
                     if (logado && usuario.isAdministrador()) {
                     %>
                         <li class="nav-item">
-                            <a class="nav-link" href="NovoProduto">Novo Produto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ListarCategoria">Categorias</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin/Admin">Área do administrador</a>
                         </li>
                       <% 
                     }
