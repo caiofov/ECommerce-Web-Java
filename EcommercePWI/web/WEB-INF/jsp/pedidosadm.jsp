@@ -20,6 +20,7 @@
             <th scope="col">Quantidade</th>
             <th scope="col">Valor Unitário</th>
             <th scope="col"></th>
+            
         </tr>
     </thead>
     <tbody>
@@ -42,7 +43,13 @@
             <td><%= pedido.getQtde() %></td>
             
             <td><%= pedido.getValor() %></td>
+            
+            <td><a title="Excluir" class="text-decoration-none" href="RemoverPedido?id=<%= pedido.getId() %>">
+            <%@include file="../../imagens/svg/trash.svg" %>
+            </a>
+            </td>
         </tr>
+            
         <%
             }
         }
