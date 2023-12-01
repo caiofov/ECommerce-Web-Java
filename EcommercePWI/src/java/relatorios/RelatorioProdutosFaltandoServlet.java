@@ -4,7 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import static java.lang.System.in;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,15 +26,17 @@ public class RelatorioProdutosFaltandoServlet extends HttpServlet {
             ProdutoDAO produtoDAO = new ProdutoDAO();
             List<Produto> produtos = produtoDAO.listarProdutosFaltando();
             for (Produto p : produtos) {
-                relatorio.print(p.getId() + "\t" + p.getDescricao() + "\t" + p.getPreco() + "\n");
+                relatorio.print(p.getId() + "\t" + p.getNome() + "\t" + p.getPreco() + "\n");
             }
             relatorio.flush();
         }
         response.setContentType("text/plain;charset=UTF-8");
         response.setContentLength((int) byteArrayOutputStream.size());
         String key = "Content-Disposition";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_mm_dd_hh_mmss");
+        String fileName = "relatorio_" + dateFormat.format(new Date()) + ".txt";
         String value = String.format("attachment; filename=\"%s\"",
-                "relatorio1.txt");
+                fileName);
         response.setHeader(key, value);
         OutputStream out = response.getOutputStream();
         out.write(byteArrayOutputStream.toByteArray());
