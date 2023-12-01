@@ -1,7 +1,7 @@
 
 <%@include file="../../cabecalho.jsp" %>
 
-<%-- <%@include file="auth.jsp" %> --%>
+<%@include file="auth.jsp" %>
 
 <h1>Área Administrativa</h1>
 <ul>
@@ -18,5 +18,5 @@
         <a href="${pageContext.request.contextPath}/RelatorioProdutosFaltando">Relatório de produtos</a>
     </li>
 </ul>
-<%-- <% } %> --%>
+<% } %>
 <%@include file="../../rodape.jsp" %>
