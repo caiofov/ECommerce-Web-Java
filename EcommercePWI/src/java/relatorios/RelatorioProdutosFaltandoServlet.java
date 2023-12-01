@@ -25,7 +25,7 @@ public class RelatorioProdutosFaltandoServlet extends HttpServlet {
         try (PrintWriter relatorio = new PrintWriter(byteArrayOutputStream)) {
             ProdutoDAO produtoDAO = new ProdutoDAO();
             List<Produto> produtos = produtoDAO.listarProdutosFaltando();
-            relatorio.print("ID ----- NOME ----- PREÇO \n");
+            relatorio.print("ID ----- NOME ------------- PREÇO \n");
             for (Produto p : produtos) {
                 relatorio.print(p.getId() + "\t " + p.getNome() + "\t    " + p.getPreco() + "\n");
             }
