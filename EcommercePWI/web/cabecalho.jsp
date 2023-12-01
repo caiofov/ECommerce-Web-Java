@@ -48,7 +48,7 @@
                     %>
                     
                                         
-                    <a title="Meus pedidos" class="text-decoration-none" href="PedidosAdm">
+                    <a title="Meus pedidos" class="text-decoration-none" href="${pageContext.request.contextPath}/PedidosAdm">
                         <%@include file="imagens/svg/basket.svg" %>
                     </a>
                     
@@ -57,7 +57,7 @@
                     %>
                     
                     
-                    <a title="Meus pedidos" class="text-decoration-none" href="Pedidos?id=<%= usuario.getId()%>">
+                    <a title="Meus pedidos" class="text-decoration-none" href="${pageContext.request.contextPath}/Pedidos?id=<%= usuario.getId()%>">
                         <%@include file="imagens/svg/basket.svg" %>
                     </a>
                     
@@ -65,12 +65,12 @@
                     }
                     %>
                     
-                    <a title="Meu carrinho" class="text-decoration-none" href="Carrinho">
+                    <a title="Meu carrinho" class="text-decoration-none" href="${pageContext.request.contextPath}/Carrinho">
                         <%@include file="imagens/svg/cart.svg" %>
                     </a>
                     
                     <div class="d-flex flex-row align-items-center">
-                    <a title="Meu Perfil" class="text-decoration-none align-items-center" href="GetConta?id=<%= usuario.getId()%>">
+                    <a title="Meu Perfil" class="text-decoration-none align-items-center" href="${pageContext.request.contextPath}/GetConta?id=<%= usuario.getId()%>">
                         <%@include file="imagens/svg/user.svg" %>
                         <%= usuario.getNome() %>
                     </a>
