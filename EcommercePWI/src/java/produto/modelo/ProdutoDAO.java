@@ -202,6 +202,7 @@ public class ProdutoDAO {
                 Produto p = new Produto();
                 p.setId(rs.getInt("id"));
                 p.setDescricao(rs.getString("descricao"));
+                p.setNome(rs.getString("nome"));
                 p.setPreco(rs.getDouble("preco"));
                 p.setQuantidade(rs.getInt("quantidade"));
                 produtos.add(p);
