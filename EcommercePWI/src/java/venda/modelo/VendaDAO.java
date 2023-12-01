@@ -23,15 +23,15 @@ public class VendaDAO {
         try {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+
+            PreparedStatement psVendaProduto = c.prepareStatement("DELETE FROM venda_produto WHERE venda_id = ?");
+            psVendaProduto.setInt(1, id);
+            sucesso = (psVendaProduto.executeUpdate() == 1);
+            psVendaProduto.close();
             
             PreparedStatement psVenda = c.prepareStatement("DELETE FROM venda WHERE id = ?");
             psVenda.setInt(1, id);
             sucesso = (psVenda.executeUpdate() == 1);
-            psVenda.close();
-
-            PreparedStatement psVendaProduto = c.prepareStatement("DELETE FROM venda_produto WHERE venda_id = ?");
-            sucesso = (psVendaProduto.executeUpdate() == 1);
-            psVendaProduto.close();
             psVenda.close();
             
             c.close();
