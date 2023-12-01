@@ -5,6 +5,7 @@ import java.sql.*;
 import carrinhocompras.modelo.CarrinhoCompraItem;
 import java.util.ArrayList;
 import java.util.List;
+import jdk.internal.net.http.common.Pair;
 import pedido.modelo.Pedido;
 
 /**
@@ -24,17 +25,43 @@ public class VendaDAO {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
 
+            PreparedStatement psProdutosId = c.prepareStatement("SELECT * FROM venda_produto WHERE venda_id = ?");
+            psProdutosId.setInt(1, id);
+            ResultSet rs = psProdutosId.executeQuery();
+
+            //Atualizar a quantidade dos produtos
+            while (rs.next()) {
+                int idProduto = rs.getInt("produto_id");
+                int quantidade = rs.getInt("quantidade");
+
+                PreparedStatement psUpdateProdutos = c.prepareStatement("UPDATE produto SET quantidade = quantidade + ? WHERE id = ?");
+                psUpdateProdutos.setInt(2, idProduto);
+                psUpdateProdutos.setInt(1, quantidade);
+                sucesso = psUpdateProdutos.executeUpdate() == 1;
+                psUpdateProdutos.close();
+            }
+            sucesso = true;
+            psProdutosId.close();
+
+            //Excluir os registros dos produtos vendidos
             PreparedStatement psVendaProduto = c.prepareStatement("DELETE FROM venda_produto WHERE venda_id = ?");
             psVendaProduto.setInt(1, id);
+
             sucesso = (psVendaProduto.executeUpdate() == 1);
             psVendaProduto.close();
-            
+
+            if (!sucesso) {
+                c.close();
+                return false;
+            }
+
+            //Excluir a venda
             PreparedStatement psVenda = c.prepareStatement("DELETE FROM venda WHERE id = ?");
             psVenda.setInt(1, id);
             sucesso = (psVenda.executeUpdate() == 1);
             psVenda.close();
-            
             c.close();
+
         } catch (ClassNotFoundException | SQLException ex) {
             return false;
         }

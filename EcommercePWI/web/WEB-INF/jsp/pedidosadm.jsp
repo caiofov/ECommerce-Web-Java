@@ -7,8 +7,9 @@
 <%@page import="java.util.List"%>
 
 <%@include file="../../cabecalho.jsp" %>
+<%@include file="auth.jsp" %>
 <hr/>
-<h1>Pedidos</h1>
+<h1>Todos os pedidos</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -60,7 +61,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <%
-        }
+        }}
         %>
     </tbody>
 </table>
