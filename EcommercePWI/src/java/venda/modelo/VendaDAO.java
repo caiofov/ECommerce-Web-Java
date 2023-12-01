@@ -1,15 +1,11 @@
 package venda.modelo;
 
+import static config.Config.*;
+import java.sql.*;
 import carrinhocompras.modelo.CarrinhoCompraItem;
-import static config.Config.JDBC_DRIVER;
-import static config.Config.JDBC_SENHA;
-import static config.Config.JDBC_URL;
-import static config.Config.JDBC_USUARIO;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import pedido.modelo.Pedido;
 
 /**
  * Classe que implementa o padrão DAO para a entidade venda
@@ -71,6 +67,41 @@ public class VendaDAO {
             return false;
         }
         return sucesso;
+    }
+    
+    /**
+     * Método utilizado para recuperar os pedidos de um usuário
+     *
+     * @param id
+     * @return
+     */
+    public ArrayList<Pedido> getPedidos(int id) {
+        ArrayList<Pedido> pedidos = new ArrayList<>();
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement("SELECT v.id, v.data, v.usuario_id, vp.quantidade, pr.nome,  pr.preco FROM venda v JOIN venda_produto vp ON v.id=vp.venda_id JOIN produto pr ON vp.produto_id=pr.id WHERE usuario_id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Pedido pedido = new Pedido();
+                pedido.setId(rs.getInt("id"));
+                pedido.setDataCompra(rs.getString("data"));
+                pedido.setCliente(rs.getInt("usuario_id"));
+                pedido.setQtde(rs.getInt("quantidade"));
+                pedido.setProduto(rs.getString("nome"));
+                pedido.setValor(rs.getFloat("preco"));
+                        
+                pedidos.add(pedido);
+            }
+            rs.close();
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return null;
+        }
+        return pedidos;
     }
 
 }

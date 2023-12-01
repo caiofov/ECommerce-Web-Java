@@ -46,7 +46,7 @@
                     if (logado) {
                     %>
 
-                    <a title="Minhas compras" class="text-decoration-none" href="Pedidos?id=<%= usuario.getId()%>">
+                    <a title="Meus pedidos" class="text-decoration-none" href="Pedidos?id=<%= usuario.getId()%>">
                         <%@include file="imagens/svg/basket.svg" %>
                     </a>
                     

@@ -7,11 +7,10 @@ public class Pedido {
     
     private int id;
     private String dataCompra;
-    private int qtdeTotal;
-    private float valorTotal;
     private int cliente;
-    private int[] itens;
-    private int[] qtdes;
+    private String produto;
+    private int qtde;
+    private float valor;
 
     public int getId() {
         return id;
@@ -29,22 +28,6 @@ public class Pedido {
         this.dataCompra = dataCompra;
     }
 
-    public int getQtdeTotal() {
-        return qtdeTotal;
-    }
-
-    public void setQtdeTotal(int qtdeTotal) {
-        this.qtdeTotal = qtdeTotal;
-    }
-
-    public float getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(float valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
     public int getCliente() {
         return cliente;
     }
@@ -52,20 +35,28 @@ public class Pedido {
     public void setCliente(int cliente) {
         this.cliente = cliente;
     }
-
-    public int[] getItens() {
-        return itens;
+    
+    public String getProduto() {
+        return produto;
     }
 
-    public void setItens(int[] itens) {
-        this.itens = itens;
+    public void setProduto(String produto) {
+        this.produto = produto;
+    }
+    
+    public int getQtde() {
+        return qtde;
     }
 
-    public int[] getQtdes() {
-        return qtdes;
+    public void setQtde(int qtde) {
+        this.qtde = qtde;
+    }
+    
+    public float getValor() {
+        return valor;
     }
 
-    public void setQtdes(int[] qtdes) {
-        this.qtdes = qtdes;
+    public void setValor(float valor) {
+        this.valor = valor;
     }
 }
