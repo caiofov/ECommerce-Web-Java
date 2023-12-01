@@ -48,7 +48,7 @@
                     %>
                     
                                         
-                    <a title="Meus pedidos" class="text-decoration-none" href="PedidosAdm">
+                    <a title="Meus pedidos" class="text-decoration-none" href="${pageContext.request.contextPath}/PedidosAdm">
                         <%@include file="imagens/svg/basket.svg" %>
                     </a>
                     
@@ -57,7 +57,7 @@
                     %>
                     
                     
-                    <a title="Meus pedidos" class="text-decoration-none" href="Pedidos?id=<%= usuario.getId()%>">
+                    <a title="Meus pedidos" class="text-decoration-none" href="${pageContext.request.contextPath}/Pedidos?id=<%= usuario.getId()%>">
                         <%@include file="imagens/svg/basket.svg" %>
                     </a>
                     
@@ -65,17 +65,17 @@
                     }
                     %>
                     
-                    <a title="Meu carrinho" class="text-decoration-none" href="Carrinho">
+                    <a title="Meu carrinho" class="text-decoration-none" href="${pageContext.request.contextPath}/Carrinho">
                         <%@include file="imagens/svg/cart.svg" %>
                     </a>
                     
                     <div class="d-flex flex-row align-items-center">
-                    <a title="Meu Perfil" class="text-decoration-none align-items-center" href="GetConta?id=<%= usuario.getId()%>">
+                    <a title="Meu Perfil" class="text-decoration-none align-items-center" href="${pageContext.request.contextPath}/GetConta?id=<%= usuario.getId()%>">
                         <%@include file="imagens/svg/user.svg" %>
                         <%= usuario.getNome() %>
                     </a>
 
-                        <form class="d-flex" action="Logout" method="get">
+                        <form class="d-flex" action="${pageContext.request.contextPath}/Logout" method="get">
                             <button class="btn btn-outline-danger" type="submit">Sair</button>
                         </form>
                     </div>
@@ -84,7 +84,7 @@
                     } else { 
                     %>
                     <%-- Se não tiver logado, é exibido um formulário de login --%>
-                    <form class="d-flex" action="Login" method="post">
+                    <form class="d-flex" action="${pageContext.request.contextPath}/Login" method="post">
                         <input class="form-control me-2" type="text" name="login" placeholder="Login" aria-label="Login" required>
                         <input class="form-control me-2" type="password" name="senha" placeholder="Senha" aria-label="Senha" required>
                         <button class="btn btn-outline-primary" type="submit">Entrar</button>
