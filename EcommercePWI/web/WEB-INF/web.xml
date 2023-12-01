@@ -130,6 +130,12 @@
         <servlet-name>Pedidos</servlet-name>
         <servlet-class>venda.controle.Pedidos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PedidosAdm</servlet-name>
+        <servlet-class>venda.controle.PedidosAdm</servlet-class>
+    </servlet>
+    
+    
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -250,6 +256,11 @@
         <servlet-name>Pedidos</servlet-name>
         <url-pattern>/Pedidos</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidosAdm</servlet-name>
+        <url-pattern>/PedidosAdm</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

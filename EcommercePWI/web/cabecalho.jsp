@@ -46,9 +46,27 @@
                     if (logado) {
                     %>
 
+                    <%
+                    if(usuario.isAdministrador()){
+                    %>
+                    
+                                        
+                    <a title="Meus pedidos" class="text-decoration-none" href="PedidosAdm">
+                        <%@include file="imagens/svg/basket.svg" %>
+                    </a>
+                    
+                    <%
+                    } else{
+                    %>
+                    
+                    
                     <a title="Meus pedidos" class="text-decoration-none" href="Pedidos?id=<%= usuario.getId()%>">
                         <%@include file="imagens/svg/basket.svg" %>
                     </a>
+                    
+                    <%
+                    }
+                    %>
                     
                     <a title="Meu carrinho" class="text-decoration-none" href="Carrinho">
                         <%@include file="imagens/svg/cart.svg" %>

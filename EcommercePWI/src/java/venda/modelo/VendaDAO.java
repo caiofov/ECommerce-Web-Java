@@ -104,4 +104,32 @@ public class VendaDAO {
         return pedidos;
     }
 
+    public ArrayList<Pedido> getPedidosAdm() {
+        ArrayList<Pedido> pedidos = new ArrayList<>();
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            PreparedStatement ps = c.prepareStatement("SELECT v.id, v.data, v.usuario_id, vp.quantidade, pr.nome,  pr.preco FROM venda v JOIN venda_produto vp ON v.id=vp.venda_id JOIN produto pr ON vp.produto_id=pr.id");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Pedido pedido = new Pedido();
+                pedido.setId(rs.getInt("id"));
+                pedido.setDataCompra(rs.getString("data"));
+                pedido.setCliente(rs.getInt("usuario_id"));
+                pedido.setQtde(rs.getInt("quantidade"));
+                pedido.setProduto(rs.getString("nome"));
+                pedido.setValor(rs.getFloat("preco"));
+                        
+                pedidos.add(pedido);
+            }
+            rs.close();
+            ps.close();
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return null;
+        }
+        return pedidos;
+    }
+
 }
