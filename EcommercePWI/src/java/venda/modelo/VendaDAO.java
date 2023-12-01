@@ -13,6 +13,35 @@ import pedido.modelo.Pedido;
 public class VendaDAO {
 
     /**
+     * Método utilizado para remover uma venda
+     *
+     * @param id
+     * @return
+     */
+    public boolean remover(int id) {
+        boolean sucesso = false;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+            
+            PreparedStatement psVenda = c.prepareStatement("DELETE FROM venda WHERE id = ?");
+            psVenda.setInt(1, id);
+            sucesso = (psVenda.executeUpdate() == 1);
+            psVenda.close();
+
+            PreparedStatement psVendaProduto = c.prepareStatement("DELETE FROM venda_produto WHERE venda_id = ?");
+            sucesso = (psVendaProduto.executeUpdate() == 1);
+            psVendaProduto.close();
+            psVenda.close();
+            
+            c.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return false;
+        }
+        return sucesso;
+    }
+
+    /**
      * Método utilizado para registrar uma nova venda
      *
      * @param usuarioId
@@ -68,7 +97,7 @@ public class VendaDAO {
         }
         return sucesso;
     }
-    
+
     /**
      * Método utilizado para recuperar os pedidos de um usuário
      *
@@ -83,7 +112,7 @@ public class VendaDAO {
             PreparedStatement ps = c.prepareStatement("SELECT v.id, v.data, v.usuario_id, vp.quantidade, pr.nome,  pr.preco FROM venda v JOIN venda_produto vp ON v.id=vp.venda_id JOIN produto pr ON vp.produto_id=pr.id WHERE usuario_id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            
+
             while (rs.next()) {
                 Pedido pedido = new Pedido();
                 pedido.setId(rs.getInt("id"));
@@ -92,7 +121,7 @@ public class VendaDAO {
                 pedido.setQtde(rs.getInt("quantidade"));
                 pedido.setProduto(rs.getString("nome"));
                 pedido.setValor(rs.getFloat("preco"));
-                        
+
                 pedidos.add(pedido);
             }
             rs.close();
@@ -111,7 +140,7 @@ public class VendaDAO {
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
             PreparedStatement ps = c.prepareStatement("SELECT v.id, v.data, v.usuario_id, vp.quantidade, pr.nome,  pr.preco FROM venda v JOIN venda_produto vp ON v.id=vp.venda_id JOIN produto pr ON vp.produto_id=pr.id");
             ResultSet rs = ps.executeQuery();
-            
+
             while (rs.next()) {
                 Pedido pedido = new Pedido();
                 pedido.setId(rs.getInt("id"));
@@ -120,7 +149,7 @@ public class VendaDAO {
                 pedido.setQtde(rs.getInt("quantidade"));
                 pedido.setProduto(rs.getString("nome"));
                 pedido.setValor(rs.getFloat("preco"));
-                        
+
                 pedidos.add(pedido);
             }
             rs.close();

@@ -140,6 +140,10 @@
         <servlet-class>
             venda.controle.PedidosAdm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoverPedidoServlet</servlet-name>
+        <servlet-class>venda.controle.RemoverPedidoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioServlet</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -268,7 +272,10 @@
         <servlet-name>PedidosAdm</servlet-name>
         <url-pattern>/PedidosAdm</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>RemoverPedidoServlet</servlet-name>
+        <url-pattern>/RemoverPedido</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

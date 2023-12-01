@@ -14,11 +14,11 @@
         <tr>
             <%-- //TODO: colocar uma imagens pequena dos produtos--%>
             <th scope="col">Id do usuario</th>
-            <th scope="col">Nº do Pedido</th>
+            <th scope="col">Nï¿½ do Pedido</th>
             <th scope="col">Data do Pedido</th>
             <th scope="col">Produto</th>
             <th scope="col">Quantidade</th>
-            <th scope="col">Valor Unitário</th>
+            <th scope="col">Valor Unitï¿½rio</th>
             <th scope="col"></th>
             
         </tr>
