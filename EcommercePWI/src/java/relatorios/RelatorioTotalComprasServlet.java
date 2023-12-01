@@ -34,7 +34,7 @@ public class RelatorioTotalComprasServlet extends HttpServlet {
         response.setContentLength((int) byteArrayOutputStream.size());
         String key = "Content-Disposition";
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_mm_dd_hh_mmss");
-        String fileName = "relatorio_" + dateFormat.format(new Date()) + ".txt";
+        String fileName = "relatorio_total" + dateFormat.format(new Date()) + ".txt";
         String value = String.format("attachment; filename=\"%s\"",
                 fileName);
         response.setHeader(key, value);
