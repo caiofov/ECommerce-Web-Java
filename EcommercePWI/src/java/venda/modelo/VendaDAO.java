@@ -225,7 +225,7 @@ public class VendaDAO {
             Class.forName(JDBC_DRIVER);
             Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
             PreparedStatement ps = c.prepareStatement(
-                    "SELECT v.data, SUM(pr.preco * vp.quantidade) AS soma FROM venda v JOIN venda_produto vp on v.id = vp.venda_id JOIN produto pr on vp.produto_id = pr.id WHERE v.data >= to_timestamp('01-01-2023 00:00:01', 'dd-mm-yyyy hh24:mi:ss') AND v.data <= CURRENT_TIMESTAMP GROUP BY v.data ORDER BY soma ASC");
+                    "SELECT DATE(v.data) as extracted_date, SUM(pr.preco * vp.quantidade) AS soma FROM venda v JOIN venda_produto vp on v.id = vp.venda_id JOIN produto pr on vp.produto_id = pr.id WHERE v.data >= to_timestamp('01-01-2023 00:00:01', 'dd-mm-yyyy hh24:mi:ss') AND v.data <= CURRENT_TIMESTAMP GROUP BY extracted_date ORDER BY soma ASC");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ArrayList<Object> data = new ArrayList();
